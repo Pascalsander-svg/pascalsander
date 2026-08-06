@@ -71,6 +71,44 @@
   }
   @media (max-width: 640px) { .mh-name { display: none; } }
 
+  /* ---- Full wordmark PASCAL SANDER with slow hover reveal ---- */
+  .wordmark { display: block; text-decoration: none; color: inherit; width: 100%; }
+  .wm-row { display: flex; justify-content: space-between; line-height: 0.82; }
+  .wm-l {
+    font-weight: 800;
+    font-size: clamp(2.4rem, 14.5vw, 12rem);
+    letter-spacing: -0.03em;
+    display: inline-block;
+    opacity: 0.34;
+    transform: translateY(0.05em);
+    transition: opacity 550ms ease, transform 550ms ease;
+  }
+  .wm-l.sp { width: 0.2em; } /* the space between words if needed */
+  .wordmark:hover .wm-l,
+  .wordmark:focus-visible .wm-l { opacity: 1; transform: none; }
+  @media (hover: none) { .wm-l { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .wm-l { opacity: 1; transform: none; transition: none; } }
+
+  /* ---- Motion reel (video strip) ---- */
+  .reel-wrap { }
+  .reel {
+    display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr);
+    gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch;
+  }
+  .reel::-webkit-scrollbar { height: 6px; }
+  .reel::-webkit-scrollbar-thumb { background: color-mix(in srgb, transparent, var(--color-ink) 25%); border-radius: 3px; }
+  .reel figure { scroll-snap-align: start; margin: 0; }
+  .reel video {
+    width: 100%; aspect-ratio: 9 / 16; object-fit: cover;
+    background: var(--color-bone); display: block;
+  }
+  .reel .caption { margin-top: 0.5rem; }
+  /* Secondary, less-dominant strip for social/screen-recording clips */
+  .reel--sm { grid-auto-columns: minmax(132px, 0.16fr); gap: 0.7rem; opacity: 0.92; }
+  .reel--sm video { aspect-ratio: 9 / 16; }
+  .reel--sm .caption { font-size: 0.62rem; }
+
   .meta {
     display: grid;
     grid-template-columns: 1.1fr 1fr 1.2fr 1fr;
@@ -271,14 +309,16 @@
     main figure img { transition: none; }
   }
 
-  /* Monochrome mode (default ON, matches reference; toggle adds .color) */
-  body:not(.color) .thumb img,
-  body:not(.color) main figure img { filter: grayscale(1) contrast(1.02); }
-  body.color .thumb img,
-  body.color main figure img { filter: none; }
+  /* Monochrome: landing thumbnails only (portfolio look), color on hover.
+     Content images and videos stay COLOR by default. The Monochrome
+     toggle (body.mono) greys the content images too; videos never grey. */
+  .thumb img { filter: grayscale(1) contrast(1.02); }
   @media (hover: hover) and (pointer: fine) {
-    body:not(.color) .card:hover .thumb img { filter: grayscale(0); }
+    .card:hover .thumb img { filter: none; }
   }
+  body.mono .thumb img { filter: grayscale(1) contrast(1.02); }
+  body.mono main figure img { filter: grayscale(1) contrast(1.02); }
+  main figure video, .reel video { filter: none !important; }
 
   /* Film grain (toggle via body.grain) */
   body.grain::after {

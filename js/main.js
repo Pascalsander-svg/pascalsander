@@ -20,44 +20,30 @@
   setInterval(tickClock, 30000);
 
   /* ---- 2. Mode toggles: Dark / Monochrome / Grain ---- */
-  function yn(id, activeIsFirst) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    el.innerHTML = activeIsFirst
-      ? "<b>" + el.textContent.trim().charAt(0) + "</b>&nbsp;&nbsp;" + el.textContent.trim().slice(-1)
-      : el.textContent.trim().charAt(0) + "&nbsp;&nbsp;<b>" + el.textContent.trim().slice(-1) + "</b>";
-  }
-  function bindToggle(btnId, ynId, apply, initialFirst) {
-    var btn = document.getElementById(btnId);
-    if (!btn) return;
-    var state = initialFirst; // true => first letter active
-    var render = function () {
-      var el = document.getElementById(ynId);
-      var a = el.getAttribute("data-a") || el.textContent.trim().charAt(0);
-      var b = el.getAttribute("data-b") || el.textContent.trim().slice(-1);
-      el.setAttribute("data-a", a); el.setAttribute("data-b", b);
-      el.innerHTML = state ? "<b>" + a + "</b>&nbsp;&nbsp;" + b : a + "&nbsp;&nbsp;<b>" + b + "</b>";
-      btn.setAttribute("aria-pressed", String(!state === false ? state : state));
-    };
+  function setupToggle(btnId, ynId, cls, onRoot) {
+    var btn = document.getElementById(btnId), yn = document.getElementById(ynId);
+    if (!btn || !yn) return;
+    var target = onRoot ? document.documentElement : document.body;
+    var on = false;
+    function render() {
+      yn.innerHTML = on ? "N&nbsp;&nbsp;<b>Y</b>" : "<b>N</b>&nbsp;&nbsp;Y";
+      btn.setAttribute("aria-pressed", String(on));
+    }
     render();
     btn.addEventListener("click", function () {
-      state = !state;
-      apply(state);
+      on = !on;
+      target.classList.toggle(cls, on);
       render();
     });
   }
-  // Dark: first=N (light). toggling to second => dark on.
-  bindToggle("t-dark", "yn-dark", function (first) {
-    document.documentElement.classList.toggle("dark", !first);
-  }, true);
-  // Monochrome: first=Y (mono on = default). second => color on.
-  bindToggle("t-mono", "yn-mono", function (first) {
-    document.body.classList.toggle("color", !first);
-  }, true);
-  // Grain: first=N (off). second => grain on.
-  bindToggle("t-grain", "yn-grain", function (first) {
-    document.body.classList.toggle("grain", !first);
-  }, true);
+  setupToggle("t-dark", "yn-dark", "dark", true);   // default light
+  setupToggle("t-mono", "yn-mono", "mono", false);  // default color content
+  setupToggle("t-grain", "yn-grain", "grain", false); // default no grain
+
+  /* ---- 2b. Wordmark: slow per-letter hover reveal ---- */
+  document.querySelectorAll(".wordmark .wm-l").forEach(function (l, i) {
+    l.style.transitionDelay = (i * 55) + "ms";
+  });
 
   /* ---- 3. Custom cursor ---- */
   var cur = document.getElementById("cursor");
@@ -85,21 +71,26 @@
     revealEls.forEach(function (el) { el.classList.add("is-in"); });
   }
 
-  /* ---- 5. Editorial image mask-wipe ---- */
+  /* ---- 5. Editorial image mask-wipe (robust scroll reveal) ---- */
   var figImgs = document.querySelectorAll("main figure img, .thumb img");
-  if (figImgs.length && "IntersectionObserver" in window && !reducedMotion) {
+  if (figImgs.length && !reducedMotion) {
     figImgs.forEach(function (img) { img.classList.add("img-wipe"); });
-    var revealImg = function (img) { img.classList.add("img-in"); ioFig.unobserve(img); };
-    var ioFig = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) revealImg(en.target); });
-    }, { threshold: 0.15 });
-    figImgs.forEach(function (img) { ioFig.observe(img); });
-    requestAnimationFrame(function () {
+    var revealVisible = function () {
+      var vh = window.innerHeight;
       figImgs.forEach(function (img) {
+        if (img.classList.contains("img-in")) return;
         var r = img.getBoundingClientRect();
-        if (r.top < window.innerHeight && r.bottom > 0) revealImg(img);
+        if (r.height === 0) return; // hidden (e.g. collapsed chapter)
+        if (r.top < vh * 0.92 && r.bottom > 0) img.classList.add("img-in");
       });
-    });
+    };
+    revealVisible();
+    var rvRAF = null;
+    var onScroll = function () { if (rvRAF) return; rvRAF = requestAnimationFrame(function () { rvRAF = null; revealVisible(); }); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+  } else {
+    document.querySelectorAll("main figure img, .thumb img").forEach(function (img) { img.classList.add("img-in"); });
   }
 
   /* ---- 6. FAQ accordion ---- */
@@ -131,6 +122,23 @@
         else if (allClosed) { toggleAll.setAttribute("data-state", "collapsed"); toggleAll.textContent = "Expand all"; }
       });
     });
+  }
+
+  /* ---- 7b. Autoplay reel videos only while in view ---- */
+  var vids = document.querySelectorAll("video[data-autoplay]");
+  if (vids.length) {
+    if (reducedMotion || !("IntersectionObserver" in window)) {
+      vids.forEach(function (v) { v.controls = true; });
+    } else {
+      var vio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          var v = en.target;
+          if (en.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+          else { v.pause(); }
+        });
+      }, { threshold: 0.35 });
+      vids.forEach(function (v) { vio.observe(v); });
+    }
   }
 
   /* ---- 8. Contact form via Web3Forms ---- */
