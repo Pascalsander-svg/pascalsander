@@ -327,8 +327,17 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* ============ SCROLL REVEAL ============ */
-  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 600ms ease, transform 600ms ease; }
-  .reveal.is-in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+  /* ---- SCROLL REVEAL ----
+     Content is visible by default. Only when JS runs (and motion is
+     allowed) do we opt into the fade-up, so a JS/observer hiccup can
+     never leave content hidden. */
+  .reveal { opacity: 1; transform: none; }
+  html.reveal-on .reveal {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 600ms ease, transform 600ms ease;
+  }
+  html.reveal-on .reveal.is-in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html.reveal-on .reveal { opacity: 1; transform: none; }
+  }
 }

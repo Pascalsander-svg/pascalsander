@@ -60,15 +60,23 @@
     document.body.style.cursor = "auto";
   }
 
-  /* ---- 4. Scroll reveal ---- */
+  /* ---- 4. Scroll reveal (robust, scroll-based) ---- */
   var revealEls = document.querySelectorAll(".reveal");
-  if (revealEls.length && "IntersectionObserver" in window && !reducedMotion) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); } });
-    }, { threshold: 0.12 });
-    revealEls.forEach(function (el) { io.observe(el); });
-  } else {
-    revealEls.forEach(function (el) { el.classList.add("is-in"); });
+  if (revealEls.length && !reducedMotion) {
+    document.documentElement.classList.add("reveal-on");
+    var revealReveals = function () {
+      var vh = window.innerHeight;
+      revealEls.forEach(function (el) {
+        if (el.classList.contains("is-in")) return;
+        var r = el.getBoundingClientRect();
+        if (r.height !== 0 && r.top < vh * 0.95 && r.bottom > 0) el.classList.add("is-in");
+      });
+    };
+    revealReveals();
+    var rRAF = null;
+    var onRevScroll = function () { if (rRAF) return; rRAF = requestAnimationFrame(function () { rRAF = null; revealReveals(); }); };
+    window.addEventListener("scroll", onRevScroll, { passive: true });
+    window.addEventListener("resize", onRevScroll);
   }
 
   /* ---- 5. Editorial image mask-wipe (robust scroll reveal) ---- */
