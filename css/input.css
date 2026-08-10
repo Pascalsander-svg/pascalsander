@@ -327,6 +327,37 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
+  /* ---- Model stats panel ---- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    max-width: 640px;
+    border-top: 1px solid color-mix(in srgb, transparent, var(--color-ink) 14%);
+  }
+  @media (min-width: 640px) { .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .stats > div {
+    padding: 1rem 0;
+    border-bottom: 1px solid color-mix(in srgb, transparent, var(--color-ink) 10%);
+  }
+  .stats dt {
+    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--color-mute); margin-bottom: 0.3rem;
+  }
+  .stats dd { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; }
+
+  /* ---- "Worked with" credibility strip ---- */
+  .logos {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.6rem;
+  }
+  .logos span {
+    font-weight: 700; font-size: clamp(1rem, 2.4vw, 1.6rem);
+    letter-spacing: -0.01em; color: color-mix(in srgb, transparent, var(--color-ink) 55%);
+    transition: color 150ms ease;
+  }
+  .logos:hover span { color: color-mix(in srgb, transparent, var(--color-ink) 30%); }
+  .logos span:hover { color: var(--color-ink); }
+
   /* ---- SCROLL REVEAL ----
      Content is visible by default. Only when JS runs (and motion is
      allowed) do we opt into the fade-up, so a JS/observer hiccup can
