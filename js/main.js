@@ -40,10 +40,47 @@
   setupToggle("t-mono", "yn-mono", "mono", false);  // default color content
   setupToggle("t-grain", "yn-grain", "grain", false); // default no grain
 
-  /* ---- 2b. Wordmark: slow per-letter hover reveal ---- */
-  document.querySelectorAll(".wordmark .wm-l").forEach(function (l, i) {
-    l.style.transitionDelay = (i * 55) + "ms";
-  });
+  /* ---- 2b. Wordmark: cursor-driven ink ----
+     Letters fill with ink based on how close the pointer is, so the name
+     "develops" under the cursor. Falls back to the CSS hover reveal when
+     there is no fine pointer or motion is reduced. */
+  var wordmark = document.querySelector(".wordmark");
+  var wmLetters = wordmark ? Array.prototype.slice.call(wordmark.querySelectorAll(".wm-l")) : [];
+  if (wordmark && wmLetters.length && finePointer && !reducedMotion) {
+    wordmark.classList.add("ink-live");
+    var GHOST = 0.34, INK_R = 340;
+    var measureWM = function () {
+      wmLetters.forEach(function (l) {
+        var r = l.getBoundingClientRect();
+        l._cx = r.left + r.width / 2;
+        l._cy = r.top + r.height / 2;
+      });
+    };
+    measureWM();
+    window.addEventListener("resize", measureWM);
+    window.addEventListener("scroll", measureWM, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureWM);
+
+    var wmRAF = null, wmx = 0, wmy = 0;
+    var paintWM = function () {
+      wmRAF = null;
+      wmLetters.forEach(function (l) {
+        var dx = l._cx - wmx, dy = l._cy - wmy;
+        var t = 1 - Math.sqrt(dx * dx + dy * dy) / INK_R;
+        if (t < 0) t = 0;
+        t = t * t * (3 - 2 * t); // smoothstep
+        l.style.opacity = (GHOST + t * (1 - GHOST)).toFixed(3);
+        l.style.transform = "translateY(" + ((1 - t) * 0.05).toFixed(3) + "em)";
+      });
+    };
+    wordmark.addEventListener("pointermove", function (e) {
+      wmx = e.clientX; wmy = e.clientY;
+      if (wmRAF === null) wmRAF = requestAnimationFrame(paintWM);
+    });
+    wordmark.addEventListener("pointerleave", function () {
+      wmLetters.forEach(function (l) { l.style.opacity = ""; l.style.transform = ""; });
+    });
+  }
 
   /* ---- 3. Custom cursor ---- */
   var cur = document.getElementById("cursor");

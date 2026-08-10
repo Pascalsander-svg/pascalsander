@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* ---- Fluid cross-document page transitions ----
+   Supported browsers cross-fade between pages automatically; the rest
+   just navigate normally. Disabled under reduced-motion. */
+@view-transition { navigation: auto; }
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 420ms; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}
+
 /* ============================================================
    DESIGN TOKENS — pascalsander.ch  (LIGHT / monochrome redesign)
    One grotesque typeface. Dark mode = runtime override below.
@@ -81,11 +93,15 @@
     display: inline-block;
     opacity: 0.34;
     transform: translateY(0.05em);
-    transition: opacity 550ms ease, transform 550ms ease;
+    transition: opacity 450ms ease, transform 450ms ease;
   }
   .wm-l.sp { width: 0.2em; } /* the space between words if needed */
+  /* Fallback (no fine pointer / keyboard focus): reveal the whole word. */
   .wordmark:hover .wm-l,
   .wordmark:focus-visible .wm-l { opacity: 1; transform: none; }
+  /* When JS drives per-letter ink from the cursor, suppress the blanket
+     hover fill so the individual letters keep their proximity values. */
+  .wordmark.ink-live:hover .wm-l { opacity: 0.34; transform: translateY(0.05em); }
   @media (hover: none) { .wm-l { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { .wm-l { opacity: 1; transform: none; transition: none; } }
 
