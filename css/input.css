@@ -362,30 +362,47 @@
   }
   .stats dd { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; }
 
-  /* ---- "Worked with" credibility strip (real logos) ---- */
-  .logos {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.5rem 1rem;
-    align-items: center;
+  /* ---- "Worked with" credibility strip (marquee ticker) ----
+     Small logos scroll continuously left. The track is duplicated once
+     so the loop is seamless; pauses on hover/focus so a logo can be
+     inspected, and freezes to a static wrapped row under reduced-motion. */
+  .logo-marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
   }
-  @media (min-width: 560px) { .logos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  @media (min-width: 900px) { .logos { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
-  .logos a, .logos span { display: block; }
+  .logos {
+    display: flex;
+    align-items: center;
+    gap: 2.75rem;
+    width: max-content;
+    animation: logoScroll 34s linear infinite;
+  }
+  .logo-marquee:hover .logos,
+  .logo-marquee:focus-within .logos { animation-play-state: paused; }
+  .logos a, .logos span { display: block; flex: 0 0 auto; }
   .logos img {
-    width: 100%;
-    height: 46px;
+    height: 20px;
+    width: auto;
+    max-width: 96px;
     object-fit: contain;
-    object-position: left center;
     filter: grayscale(1) contrast(0.9);
-    opacity: 0.62;
-    transition: filter 250ms ease, opacity 250ms ease;
+    opacity: 0.55;
+    transition: filter 200ms ease, opacity 200ms ease;
   }
   @media (hover: hover) and (pointer: fine) {
     .logos img:hover { filter: none; opacity: 1; }
   }
   :root.dark .logos img { filter: grayscale(1) invert(1) contrast(0.9); }
   :root.dark .logos img:hover { filter: none; opacity: 1; }
+  @keyframes logoScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); } /* track is duplicated 2x, so 50% = one full set */
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-marquee { -webkit-mask-image: none; mask-image: none; }
+    .logos { animation: none; flex-wrap: wrap; width: auto; }
+  }
 
   /* ---- SCROLL REVEAL ----
      Content is visible by default. Only when JS runs (and motion is
