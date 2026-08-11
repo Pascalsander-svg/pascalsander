@@ -37,8 +37,6 @@
     });
   }
   setupToggle("t-dark", "yn-dark", "dark", true);   // default light
-  setupToggle("t-mono", "yn-mono", "mono", false);  // default color content
-  setupToggle("t-grain", "yn-grain", "grain", false); // default no grain
 
   /* ---- 2b. Wordmark: cursor-driven ink ----
      Letters fill with ink based on how close the pointer is, so the name

@@ -105,24 +105,27 @@
   @media (hover: none) { .wm-l { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { .wm-l { opacity: 1; transform: none; transition: none; } }
 
-  /* ---- Motion reel (video strip) ---- */
+  /* ---- Motion reel (video strip) ----
+     Height-based so portrait (9:16) and landscape (16:9) clips can sit
+     side by side at the same height without being cropped. */
   .reel-wrap { }
   .reel {
-    display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 1fr);
+    display: flex;
     gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
     padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch;
   }
   .reel::-webkit-scrollbar { height: 6px; }
   .reel::-webkit-scrollbar-thumb { background: color-mix(in srgb, transparent, var(--color-ink) 25%); border-radius: 3px; }
-  .reel figure { scroll-snap-align: start; margin: 0; }
+  .reel figure { scroll-snap-align: start; margin: 0; flex: 0 0 auto; }
   .reel video {
-    width: 100%; aspect-ratio: 9 / 16; object-fit: cover;
-    background: var(--color-bone); display: block;
+    height: 380px; width: auto; max-width: none;
+    object-fit: cover; background: var(--color-bone); display: block;
   }
+  @media (max-width: 640px) { .reel video { height: 300px; } }
   .reel .caption { margin-top: 0.5rem; }
   /* Secondary, less-dominant strip for social/screen-recording clips */
-  .reel--sm { grid-auto-columns: minmax(132px, 0.16fr); gap: 0.7rem; opacity: 0.92; }
-  .reel--sm video { aspect-ratio: 9 / 16; }
+  .reel--sm { gap: 0.7rem; opacity: 0.92; }
+  .reel--sm video { height: 210px; }
   .reel--sm .caption { font-size: 0.62rem; }
 
   .meta {
@@ -325,23 +328,8 @@
     main figure img { transition: none; }
   }
 
-  /* Monochrome: landing thumbnails only (portfolio look), color on hover.
-     Content images and videos stay COLOR by default. The Monochrome
-     toggle (body.mono) greys the content images too; videos never grey. */
-  .thumb img { filter: grayscale(1) contrast(1.02); }
-  @media (hover: hover) and (pointer: fine) {
-    .card:hover .thumb img { filter: none; }
-  }
-  body.mono .thumb img { filter: grayscale(1) contrast(1.02); }
-  body.mono main figure img { filter: grayscale(1) contrast(1.02); }
+  /* Videos always render in full colour. */
   main figure video, .reel video { filter: none !important; }
-
-  /* Film grain (toggle via body.grain) */
-  body.grain::after {
-    content: ""; position: fixed; inset: 0; z-index: 60; pointer-events: none;
-    opacity: 0.06; mix-blend-mode: soft-light;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
 
   /* ---- Model stats panel ---- */
   .stats {
@@ -384,10 +372,10 @@
   .logos img {
     height: 20px;
     width: auto;
-    max-width: 96px;
+    max-width: 150px;
     object-fit: contain;
     filter: grayscale(1) contrast(0.9);
-    opacity: 0.55;
+    opacity: 0.62;
     transition: filter 200ms ease, opacity 200ms ease;
   }
   @media (hover: hover) and (pointer: fine) {
