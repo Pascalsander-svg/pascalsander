@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Just-Faster Group | Secure Information Management</title>
+<meta name="description" content="A Swiss group turning enterprise information into a secure, automated, AI-ready foundation. One partner, four specialists, since 2007.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#12332B; --forest-2:#0C241E; --ivory:#F3EEE4; --ivory-2:#FBF8F1;
+    --brass:#B8894B; --brass-lite:#D4B483; --ink:#1A1A17; --muted:#5C6560; --line:#D8D0C0;
+    --disp:'Spectral',Georgia,serif; --body:'Archivo',system-ui,sans-serif; --mono:'Space Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ivory);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  @media(max-width:640px){.wrap{padding:0 22px}}
+  a{color:inherit}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--brass)}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:60;background:rgba(243,238,228,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{font-family:var(--disp);font-weight:600;font-size:23px;letter-spacing:-.01em;color:var(--forest);cursor:pointer}
+  .brand b{color:var(--brass)}
+  .nlinks{display:flex;gap:26px;font-size:14px;font-weight:500}
+  .nlinks a{text-decoration:none;color:var(--muted);transition:color .2s;cursor:pointer}
+  .nlinks a:hover,.nlinks a.active{color:var(--forest)}
+  .ncta{font-size:13.5px;font-weight:600;text-decoration:none;padding:11px 20px;background:var(--forest);color:var(--ivory)!important;border-radius:1px;transition:background .2s;cursor:pointer}
+  .ncta:hover{background:var(--forest-2)}
+  .has-sub{position:relative}
+  .submenu{display:none;position:absolute;top:100%;left:-14px;background:var(--ivory-2);border:1px solid var(--line);border-radius:3px;padding:8px 0;min-width:230px;box-shadow:0 12px 30px rgba(12,36,30,.1)}
+  .has-sub:hover .submenu{display:block}
+  .submenu a{display:block;padding:9px 18px;font-size:13.5px;white-space:nowrap}
+  .submenu a:hover{background:var(--ivory);color:var(--forest)}
+  @media(max-width:980px){.nlinks{display:none}}
+
+  /* PAGE routing */
+  .page{display:none}
+  .page.active{display:block;animation:fade .3s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  header{background:var(--forest);color:var(--ivory);position:relative;overflow:hidden}
+  .hero-inner{padding:92px 0 80px;position:relative;z-index:2}
+  .hero-eyebrow{color:var(--brass-lite)}
+  h1{font-family:var(--disp);font-weight:400;font-size:clamp(36px,6vw,70px);line-height:1.02;letter-spacing:-.02em;margin:20px 0 0;max-width:17ch}
+  h1 em{font-style:italic;color:var(--brass-lite)}
+  .hero-sub{font-size:clamp(17px,2vw,21px);line-height:1.55;color:#CDD6D0;max-width:56ch;margin-top:28px}
+  .hero-actions{margin-top:38px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--brass);color:var(--forest-2);text-decoration:none;padding:16px 30px;border-radius:1px;font-weight:700;font-size:15.5px;transition:transform .15s,background .2s;cursor:pointer;border:none}
+  .btn:hover{background:var(--brass-lite);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;border:1px solid rgba(212,180,131,.5);color:var(--brass-lite);font-weight:600}
+  .btn-ghost:hover{background:rgba(212,180,131,.1);transform:none}
+  header::before{content:"";position:absolute;right:-180px;top:-120px;width:600px;height:600px;border:1px solid rgba(212,180,131,.1);border-radius:50%}
+  header::after{content:"";position:absolute;right:-60px;top:60px;width:380px;height:380px;border:1px solid rgba(212,180,131,.07);border-radius:50%}
+
+  .ledger{background:var(--forest-2);color:var(--ivory)}
+  .ledger .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;padding:32px;gap:20px}
+  .stat{text-align:center;flex:1;min-width:120px}
+  .stat .v{font-family:var(--disp);font-weight:500;font-size:clamp(28px,4vw,42px);line-height:1}
+  .stat .v small{color:var(--brass-lite);font-family:var(--mono);font-size:.4em;vertical-align:super}
+  .stat .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:#8FA097;margin-top:10px}
+
+  section{padding:78px 0}
+  .band{border-top:1px solid var(--line)}
+  .sec-head{max-width:60ch;margin-bottom:46px}
+  .sec-head h2{font-family:var(--disp);font-weight:400;font-size:clamp(27px,3.8vw,42px);line-height:1.08;letter-spacing:-.015em;margin-top:12px;color:var(--forest)}
+  .sec-head p{color:var(--muted);font-size:17.5px;margin-top:16px;max-width:58ch}
+
+  .pillars{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .pillar{background:var(--ivory-2);padding:24px 20px;min-height:180px}
+  .pillar .pn{font-family:var(--mono);font-size:11px;color:var(--brass)}
+  .pillar h3{font-family:var(--disp);font-weight:500;font-size:18px;line-height:1.15;margin:14px 0 9px;color:var(--forest)}
+  .pillar p{font-size:14px;color:var(--muted)}
+  @media(max-width:900px){.pillars{grid-template-columns:repeat(2,1fr)}.pillar{min-height:0}}
+  @media(max-width:520px){.pillars{grid-template-columns:1fr}}
+
+  .twin{background:var(--ivory)}
+  .twin .grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:12px}
+  .vcard{background:var(--ivory-2);border:1px solid var(--line);border-top:3px solid var(--brass);border-radius:2px;padding:36px 32px}
+  .vcard .k{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--brass)}
+  .vcard h3{font-family:var(--disp);font-weight:500;font-size:26px;color:var(--forest);margin:12px 0;line-height:1.1}
+  .vcard p{font-size:16px;color:#33403A;margin-bottom:12px}
+  .vcard ul{margin:0 0 0 18px;font-size:15px;color:var(--muted);line-height:1.7}
+  @media(max-width:760px){.twin .grid{grid-template-columns:1fr}}
+
+  .group-lead{background:var(--ivory-2)}
+  .firms{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:12px}
+  .fcard{background:var(--forest);color:var(--ivory);padding:30px 26px;border-radius:2px;cursor:pointer;transition:transform .15s}
+  .fcard:hover{transform:translateY(-3px)}
+  .fcard h3{font-family:var(--disp);font-weight:500;font-size:25px;color:var(--brass-lite)}
+  .fcard .role{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8FA097;margin:9px 0 14px}
+  .fcard p{font-size:15px;color:#CDD6D0}
+  @media(max-width:820px){.firms{grid-template-columns:1fr}}
+
+  .trow{display:grid;grid-template-columns:120px 1fr;gap:32px;padding:22px 0;border-top:1px solid var(--line)}
+  .trow .yr{font-family:var(--disp);font-weight:600;font-size:21px;color:var(--brass)}
+  .trow .tc h4{font-weight:700;font-size:16px;margin-bottom:5px;color:var(--forest)}
+  .trow .tc p{font-size:15px;color:var(--muted)}
+  @media(max-width:640px){.trow{grid-template-columns:1fr;gap:5px}}
+
+  .clients{background:var(--forest);color:var(--ivory)}
+  .clients .sec-head h2{color:var(--brass-lite)}
+  .qgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .quote{background:var(--forest-2);border-left:2px solid var(--brass);padding:28px;border-radius:2px}
+  .quote .txt{font-family:var(--disp);font-style:italic;font-size:18px;line-height:1.45}
+  .quote cite{display:block;font-style:normal;font-family:var(--mono);font-size:12px;color:var(--brass-lite);margin-top:16px}
+  .quote .ind{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8FA097;margin-bottom:14px}
+  @media(max-width:720px){.qgrid{grid-template-columns:1fr}}
+
+  /* solution page bits */
+  .sol-hero{background:var(--forest);color:var(--ivory);padding:80px 0 64px;position:relative;overflow:hidden}
+  .sol-hero .eyebrow{color:var(--brass-lite)}
+  .sol-hero h1{font-size:clamp(32px,5vw,58px);margin-bottom:22px}
+  .sol-hero p{max-width:54ch;color:#CDD6D0;font-size:19px}
+  .breadcrumb{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8FA097;margin-bottom:6px}
+  .breadcrumb a{cursor:pointer}
+  .lead-answer{font-size:20px;line-height:1.55;color:var(--forest);font-family:var(--disp);max-width:62ch}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:10px}
+  .two-col h3{font-family:var(--disp);font-weight:500;font-size:22px;color:var(--forest);margin-bottom:12px}
+  .two-col p,.two-col li{font-size:15.5px;color:#33403A}
+  .two-col ul{margin-left:18px;line-height:1.7}
+  @media(max-width:760px){.two-col{grid-template-columns:1fr;gap:26px}}
+  .outcomes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:12px}
+  .ocard{background:var(--ivory-2);border:1px solid var(--line);border-radius:2px;padding:26px}
+  .ocard .big{font-family:var(--disp);font-size:30px;color:var(--brass);font-weight:600}
+  .ocard p{font-size:14.5px;color:var(--muted);margin-top:8px}
+  @media(max-width:760px){.outcomes{grid-template-columns:1fr}}
+  .proof{background:var(--ivory-2);border-left:3px solid var(--brass);padding:26px 30px;border-radius:2px;margin-top:10px}
+  .proof .txt{font-family:var(--disp);font-style:italic;font-size:19px;color:var(--forest)}
+  .proof cite{display:block;font-style:normal;font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:12px}
+
+  .faq details{border-bottom:1px solid var(--line);padding:4px 0}
+  .faq summary{cursor:pointer;list-style:none;padding:18px 0;font-family:var(--disp);font-size:20px;color:var(--forest);display:flex;justify-content:space-between;align-items:center}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .pl{color:var(--brass);font-weight:700;transition:transform .2s}
+  .faq details[open] summary .pl{transform:rotate(45deg)}
+  .faq .a{padding:0 0 20px;font-size:16px;color:#33403A;max-width:68ch}
+
+  .cta-band{background:var(--forest-2);color:var(--ivory);text-align:center;padding:64px 0}
+  .cta-band h2{font-family:var(--disp);font-weight:400;font-size:clamp(26px,4vw,40px);color:var(--ivory);max-width:22ch;margin:0 auto 26px}
+
+  /* companies deep */
+  details.tech{margin-top:22px;border:1px solid var(--line);border-radius:2px;background:var(--ivory-2)}
+  details.tech summary{cursor:pointer;list-style:none;padding:16px 20px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--forest);display:flex;justify-content:space-between}
+  details.tech summary::-webkit-details-marker{display:none}
+  details.tech .tbody{padding:4px 20px 22px}
+  details.tech .cap{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);margin:18px 0 7px}
+  details.tech p{font-size:14.5px;color:var(--muted);line-height:1.55}
+  details.tech ul{margin:6px 0 0 18px;font-size:14.5px;color:var(--muted);line-height:1.7}
+
+  /* blog */
+  .blog{background:var(--ivory-2)}
+  .bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:12px}
+  .bpost{background:var(--ivory);border:1px solid var(--line);border-radius:2px;overflow:hidden}
+  .bpost .thumb{aspect-ratio:16/9;background:linear-gradient(150deg,#1B4034,#0C241E);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10.5px;color:#6E7E75}
+  .bpost .bmeta{padding:22px}
+  .bpost .cat{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+  .bpost h3{font-family:var(--disp);font-weight:500;font-size:19px;color:var(--forest);margin:12px 0 8px;line-height:1.2}
+  .bpost p{font-size:14px;color:var(--muted)}
+  @media(max-width:760px){.bgrid{grid-template-columns:1fr}}
+
+  footer{background:var(--forest-2);color:var(--ivory);padding:70px 0 40px}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;border-top:1px solid rgba(212,180,131,.16);padding-top:32px;margin-top:40px}
+  .foot-brand{font-family:var(--disp);font-size:22px;color:var(--brass-lite);font-weight:600}
+  .foot-firms{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6E7E75;margin-top:10px}
+  .foot-col h5{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8FA097;margin-bottom:12px}
+  .foot-col a{display:block;font-size:14px;color:#CDD6D0;text-decoration:none;padding:4px 0;cursor:pointer}
+  .foot-col a:hover{color:var(--brass-lite)}
+  .foot-meta{font-family:var(--mono);font-size:12.5px;color:#8FA097;line-height:1.9}
+  .foot-note{font-family:var(--mono);font-size:10.5px;color:#586760;margin-top:30px;text-align:center}
+  .flag{font-family:var(--mono);font-size:10.5px;color:var(--brass);background:rgba(184,137,75,.1);border:1px dashed rgba(184,137,75,.4);padding:2px 7px;border-radius:2px}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand" onclick="go('home')">Just<b>·</b>Faster</div>
+    <div class="nlinks">
+      <div class="has-sub"><a class="nlink" data-p="solutions-hub">Solutions ▾</a>
+        <div class="submenu">
+          <a onclick="go('order-to-cash')">Order-to-Cash</a>
+          <a onclick="go('procure-to-pay')">Procure-to-Pay</a>
+          <a onclick="go('ai-readiness')">AI Readiness</a>
+          <a onclick="go('invoice-to-pay')">Invoice-to-Pay</a>
+          <a onclick="go('hire-to-retire')">Hire-to-Retire</a>
+          <a onclick="go('eam')">Enterprise Asset Management</a>
+        </div>
+      </div>
+      <div class="has-sub"><a class="nlink" data-p="companies">Companies ▾</a>
+        <div class="submenu">
+          <a onclick="go('qpes')">QPES</a>
+          <a onclick="go('cirro')">Cirro</a>
+          <a onclick="go('fortuna')">Fortuna</a>
+        </div>
+      </div>
+      <a class="nlink" data-p="insights" onclick="go('insights')">Insights</a>
+      <a class="nlink" data-p="careers" onclick="go('careers')">Careers</a>
+      <a class="nlink" data-p="contact" onclick="go('contact')">Contact</a>
+    </div>
+    <a class="ncta" onclick="go('contact')">Talk to Philipp Sander</a>
+  </div>
+</nav>
+
+<!-- ============ HOME ============ -->
+<div class="page active" id="home">
+  <header>
+    <div class="wrap hero-inner">
+      <div class="eyebrow hero-eyebrow">Secure Information Management</div>
+      <h1>Information, <em>handled</em>.</h1>
+      <p class="hero-sub">Secure, compliant, automated and cost-efficient — delivered by one Swiss group of specialists. From strategy to daily operation, one partner for the whole journey.</p>
+      <div class="hero-actions">
+        <a class="btn" onclick="go('contact')">Talk to Philipp Sander</a>
+        <a class="btn btn-ghost" onclick="go('solutions-hub')">Explore solutions</a>
+      </div>
+    </div>
+  </header>
+  <div class="ledger"><div class="wrap">
+    <div class="stat"><div class="v"><small>&gt;</small>270</div><div class="l">Projects delivered</div></div>
+    <div class="stat"><div class="v">18<small>yrs</small></div><div class="l">Since 2007</div></div>
+    <div class="stat"><div class="v"><small>&gt;</small>80</div><div class="l">Consultants</div></div>
+    <div class="stat"><div class="v">17</div><div class="l">Competence centres</div></div>
+    <div class="stat"><div class="v">5</div><div class="l">Continents</div></div>
+  </div></div>
+
+  <section><div class="wrap">
+    <div class="sec-head"><div class="eyebrow">The foundation</div><h2>What Secure Information Management means</h2>
+    <p>Most companies sit on decades of information. The moment you want to automate it or apply AI, one question decides everything: can the data be trusted, and is it safe to use? Getting that right rests on five things.</p></div>
+    <div class="pillars">
+      <div class="pillar"><div class="pn">01</div><h3>Governed access</h3><p>The right people and systems reach the right information — nothing beyond it.</p></div>
+      <div class="pillar"><div class="pn">02</div><h3>Protected data</h3><p>Confidential content stays confidential, and never leaks where it shouldn't.</p></div>
+      <div class="pillar"><div class="pn">03</div><h3>One source of truth</h3><p>Every person and process works from current, trusted information.</p></div>
+      <div class="pillar"><div class="pn">04</div><h3>Lifecycle &amp; compliance</h3><p>Retention, records, audit trails and defensible deletion — regulations met.</p></div>
+      <div class="pillar"><div class="pn">05</div><h3>Safe automation &amp; AI</h3><p>Clear guardrails and full traceability for everything automated.</p></div>
+    </div>
+  </div></section>
+
+  <section class="band twin"><div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Why companies come to us</div><h2>Two outcomes, one foundation</h2>
+    <p>Get Secure Information Management right and two things follow: your business becomes ready to use AI safely, and the cost of running your information estate comes down.</p></div>
+    <div class="grid">
+      <div class="vcard"><div class="k">AI readiness</div><h3>Data your AI can actually trust</h3><p>A model is only as good as the information behind it. We make that information governed, current and safe to use.</p><ul><li>A single, reliable source of truth</li><li>Sensitive content protected before it reaches a model</li><li>Full traceability of what was used, and why</li></ul></div>
+      <div class="vcard"><div class="k">Cost take-out</div><h3>Lower the cost of holding it all</h3><p>Decades of systems, licences and storage quietly drain budget. We take that cost out — by retiring what's redundant and streamlining what remains.</p><ul><li>Safe decommissioning of legacy systems</li><li>Storage and lifecycle rationalised</li><li>Manual processes automated end to end</li></ul></div>
+    </div>
+  </div></section>
+
+  <section class="band group-lead"><div class="wrap">
+    <div class="sec-head"><div class="eyebrow">One group, one contract</div><h2>Specialists that work as one</h2>
+    <p>Four specialised companies covering the full path of Secure Information Management. You deal with one partner. The right experts work behind the scenes.</p></div>
+    <div class="firms">
+      <div class="fcard" onclick="go('qpes')"><h3>QPES</h3><div class="role">Operational core</div><p>Designs, integrates and runs the solutions that keep information governed, protected and usable.</p></div>
+      <div class="fcard" onclick="go('cirro')"><h3>Cirro</h3><div class="role">Platform &amp; cloud</div><p>Connects systems that were never built to talk to each other, and moves them safely to the cloud.</p></div>
+      <div class="fcard" onclick="go('fortuna')"><h3>Fortuna</h3><div class="role">Delivery &amp; data</div><p>Runs services across Europe and turns the data you already produce into insight you can act on.</p></div>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Since 2007</div><h2>Eighteen years in the making</h2></div>
+    <div class="trow"><div class="yr">2007</div><div class="tc"><h4>Foundation</h4><p>Founded in Switzerland as a specialist for information management, cloud services and advisory.</p></div></div>
+    <div class="trow"><div class="yr">2015–19</div><div class="tc"><h4>Scaling delivery</h4><p>Competence centres across Eastern Europe, a first international subsidiary, and a growing consulting team.</p></div></div>
+    <div class="trow"><div class="yr">2020–22</div><div class="tc"><h4>Group &amp; reach</h4><p>A second subsidiary, 17 competence centres across 12 countries, and the forming of the Just-Faster group.</p></div></div>
+    <div class="trow"><div class="yr">2023–25</div><div class="tc"><h4>Full portfolio</h4><p>The complete Secure Information Management portfolio, delivered directly to end customers across continents.</p></div></div>
+  </div></section>
+
+  <section class="clients"><div class="wrap">
+    <div class="sec-head"><div class="eyebrow" style="color:var(--brass-lite)">In our clients' words</div><h2>Trusted over years, not projects</h2></div>
+    <div class="qgrid">
+      <div class="quote"><div class="ind">Energy</div><div class="txt">"Over five years, Just-Faster has proven a reliable, transparent partner — with complete visibility into priorities, costs and progress at all times."</div><cite>Gonçalo Rodrigues · Project Manager, volenergy AG</cite></div>
+      <div class="quote"><div class="ind">Manufacturing</div><div class="txt">"Intelligent invoice automation helped us streamline our back-office processes and keep quality high as we grew."</div><cite>Senior IT Project Manager, precision-engineering manufacturer <span class="flag">client name pending sign-off</span></cite></div>
+    </div>
+  </div></section>
+
+  <div class="cta-band"><div class="wrap"><h2>Your information should be working harder than it is.</h2><a class="btn" onclick="go('contact')">Talk to Philipp Sander</a></div></div>
+</div>
+
+<!-- ============ SOLUTIONS HUB (pillar) ============ -->
+<div class="page" id="solutions-hub">
+  <div class="sol-hero"><div class="wrap">
+    <div class="breadcrumb"><a onclick="go('home')">Home</a> / Solutions</div>
+    <div class="eyebrow">Finance &amp; information process automation</div>
+    <h1>Solutions that pay for themselves.</h1>
+    <p>We automate the core cycles your business runs on — securely, and without ripping out what already works. Start with the process that's costing you the most.</p>
+  </div></div>
+  <section><div class="wrap">
+    <div class="firms">
+      <div class="fcard" onclick="go('order-to-cash')"><h3>Order-to-Cash</h3><div class="role">Get paid faster</div><p>Order capture to recorded payment — a shorter revenue cycle with fewer errors.</p></div>
+      <div class="fcard" onclick="go('procure-to-pay')"><h3>Procure-to-Pay</h3><div class="role">Control your spend</div><p>Requisition to payment, with transparency and control built in.</p></div>
+      <div class="fcard" onclick="go('ai-readiness')"><h3>AI Readiness</h3><div class="role">Prepare to automate</div><p>Make your information trustworthy enough to apply AI safely.</p></div>
+      <div class="fcard" onclick="go('invoice-to-pay')"><h3>Invoice-to-Pay</h3><div class="role">Automate payables</div><p>Capture, match, approve, post and archive invoices automatically.</p></div>
+      <div class="fcard" onclick="go('hire-to-retire')"><h3>Hire-to-Retire</h3><div class="role">The employee lifecycle</div><p>Every employee document, governed and instantly retrievable.</p></div>
+      <div class="fcard" onclick="go('eam')"><h3>Enterprise Asset Management</h3><div class="role">Maximise your assets</div><p>Manage physical assets across their whole lifecycle.</p></div>
+    </div>
+  </div></section>
+  <div class="cta-band"><div class="wrap"><h2>Not sure which to tackle first?</h2><a class="btn" onclick="go('contact')">Talk to Philipp Sander</a></div></div>
+</div>
+
+<!-- solution page template will be cloned by JS for each -->
+<div class="page" id="order-to-cash"></div>
+<div class="page" id="procure-to-pay"></div>
+<div class="page" id="ai-readiness"></div>
+<div class="page" id="invoice-to-pay"></div>
+<div class="page" id="hire-to-retire"></div>
+<div class="page" id="eam"></div>
+
+<!-- ============ COMPANIES ============ -->
+<div class="page" id="companies">
+  <div class="sol-hero"><div class="wrap"><div class="breadcrumb"><a onclick="go('home')">Home</a> / Companies</div><div class="eyebrow">The group</div><h1>Four specialists, one contract.</h1><p>Each company leads its field. Together they cover the full path of Secure Information Management.</p></div></div>
+  <section><div class="wrap"><div class="firms">
+    <div class="fcard" onclick="go('qpes')"><h3>QPES</h3><div class="role">Operational core · since 2006</div><p>Enterprise information and process solutions, built, integrated and run end to end.</p></div>
+    <div class="fcard" onclick="go('cirro')"><h3>Cirro</h3><div class="role">Platform &amp; cloud · since 2016</div><p>Integration and migration suites that connect systems and move them to the cloud.</p></div>
+    <div class="fcard" onclick="go('fortuna')"><h3>Fortuna</h3><div class="role">Delivery &amp; data · since 2023</div><p>Service-management delivery across Europe plus a dedicated data-science practice.</p></div>
+  </div></div></section>
+</div>
+<div class="page" id="qpes"></div>
+<div class="page" id="cirro"></div>
+<div class="page" id="fortuna"></div>
+
+<!-- ============ INSIGHTS ============ -->
+<div class="page" id="insights">
+  <div class="sol-hero"><div class="wrap"><div class="breadcrumb"><a onclick="go('home')">Home</a> / Insights</div><div class="eyebrow">Insights</div><h1>Thinking on information, AI and cost.</h1><p>Real projects and points of view on running information securely, taking cost out, and making it work with AI.</p></div></div>
+  <section class="blog"><div class="wrap"><div class="bgrid">
+    <article class="bpost"><div class="thumb">[ IMAGE ]</div><div class="bmeta"><div class="cat">Guide</div><h3>Order-to-cash vs procure-to-pay: which to automate first</h3><p>Two core finance cycles, one budget. A practical way to decide where automation pays back fastest.</p></div></article>
+    <article class="bpost"><div class="thumb">[ IMAGE ]</div><div class="bmeta"><div class="cat">Point of View</div><h3>What AI readiness really means for a mid-size enterprise</h3><p>Everyone wants AI agents. Few have prepared the information those agents will act on.</p></div></article>
+    <article class="bpost"><div class="thumb">[ IMAGE ]</div><div class="bmeta"><div class="cat">Guide</div><h3>How to take cost out of your information estate</h3><p>Retire what's redundant, rationalise storage, automate the manual. Where the savings actually hide.</p></div></article>
+    <article class="bpost"><div class="thumb">[ IMAGE ]</div><div class="bmeta"><div class="cat">Case Study · Insurance</div><h3>SLA compliance from 50% to 90%</h3><p>How one insurer modernised service management and cut request times from three days to eight hours.</p></div></article>
+    <article class="bpost"><div class="thumb">[ IMAGE ]</div><div class="bmeta"><div class="cat">Case Study · Professional Services</div><h3>Digital employee files at European scale</h3><p>350,000 documents across 12 countries, on one governed platform.</p></div></article>
+    <article class="bpost"><div class="thumb">[ IMAGE ]</div><div class="bmeta"><div class="cat">Case Study · Energy</div><h3>Five years with volenergy AG</h3><p>What a genuine long-term partnership looks like, in the client's own words.</p></div></article>
+  </div></div></section>
+</div>
+
+<!-- ============ CAREERS ============ -->
+<div class="page" id="careers">
+  <div class="sol-hero"><div class="wrap"><div class="breadcrumb"><a onclick="go('home')">Home</a> / Careers</div><div class="eyebrow">Careers &amp; Academy</div><h1>Built on people who keep learning.</h1><p>Across the group, our academy combines structured training with real project work, guided by senior experts.</p></div></div>
+  <section><div class="wrap">
+    <div class="two-col">
+      <div><h3>Working here</h3><ul><li>Democratic leadership</li><li>Work-life balance</li><li>A supportive, inclusive community</li><li>Flexible working models</li><li>Learning directly from experts</li><li>Room to grow</li></ul><a class="btn" style="margin-top:22px" onclick="go('contact')">See open roles</a></div>
+      <div><h3>The academy</h3><p>We hire across the full range of Secure Information Management disciplines. Open roles are posted here as they come up — and if nothing open fits, direct applications are always welcome.</p><div class="proof" style="margin-top:20px"><div class="txt">"A progressive company with a lot of opportunities — interesting projects and, above all, the people."</div><cite>Olga Trotsko · Head of AMS Business Management <span class="flag">provisional</span></cite></div></div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<div class="page" id="contact">
+  <div class="sol-hero"><div class="wrap"><div class="breadcrumb"><a onclick="go('home')">Home</a> / Contact</div><div class="eyebrow">Start with a conversation</div><h1>Talk to Philipp Sander.</h1><p>The fastest way to find out where your information is costing you — and what it would take to fix it.</p></div></div>
+  <section><div class="wrap">
+    <div class="two-col">
+      <div><h3>Book a conversation</h3><p>Founder and Managing Partner Philipp Sander works directly with CEOs and boards. Reach out and we'll set up a first call.</p><a class="btn" style="margin-top:20px" href="mailto:psander@qpes.com">Email Philipp Sander</a></div>
+      <div><h3>Just-Faster Group</h3><p class="foot-meta" style="color:var(--muted)">Morgartenstrasse 9<br>CH-6003 Lucerne, Switzerland<br>info@just-faster.com<br>+41 43 505 32 04<br>Founded 2007 · Küssnacht am Rigi</p></div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div style="display:flex;flex-wrap:wrap;gap:44px;justify-content:space-between">
+      <div style="max-width:280px"><div class="foot-brand">Just·Faster</div><div class="foot-firms">QPES · Cirro · Fortuna</div><p style="color:#8FA097;font-size:14px;margin-top:14px">Secure Information Management, from one Swiss partner. Since 2007.</p></div>
+      <div class="foot-col"><h5>Solutions</h5><a onclick="go('order-to-cash')">Order-to-Cash</a><a onclick="go('procure-to-pay')">Procure-to-Pay</a><a onclick="go('ai-readiness')">AI Readiness</a><a onclick="go('invoice-to-pay')">Invoice-to-Pay</a></div>
+      <div class="foot-col"><h5>Group</h5><a onclick="go('qpes')">QPES</a><a onclick="go('cirro')">Cirro</a><a onclick="go('fortuna')">Fortuna</a><a onclick="go('careers')">Careers</a></div>
+      <div class="foot-col"><h5>Company</h5><a onclick="go('insights')">Insights</a><a onclick="go('contact')">Contact</a></div>
+    </div>
+    <div class="foot-grid"><div class="foot-meta">Just-Faster Group · Morgartenstrasse 9 · CH-6003 Lucerne · info@just-faster.com</div><a class="ncta" onclick="go('contact')">Talk to Philipp Sander</a></div>
+    <div class="foot-note">Proof of concept — verified content, provisional items marked. Not final copy.</div>
+  </div>
+</footer>
+
+<script>
+// ---- solution page data ----
+const SOL = {
+  'order-to-cash':{
+    crumb:'Order-to-Cash', eyebrow:'Finance process automation',
+    h1:'Order-to-Cash, automated end to end.',
+    sub:'Shorten your revenue cycle, cut errors, and improve cash flow — from order capture to recorded payment.',
+    lead:'Order-to-cash is the full cycle from a customer placing an order to your business receiving and recording payment. We automate every step of it, securely, so revenue moves faster and nothing slips through.',
+    problem:['Orders re-keyed by hand between systems introduce errors and delay.','Slow invoicing and collection stretch the revenue cycle and tie up cash.','Without a single view, no one can see where an order is stuck.'],
+    solve:['Automated order capture and validation','Automated credit checks and approvals','Invoicing and cash application without manual re-entry','Real-time dashboards to spot bottlenecks','Full integration with your core finance system'],
+    outcomes:[['↓ days','Shorter revenue cycle'],['↓ errors','Fewer manual mistakes'],['↑ cash','Improved cash flow']],
+    proof:['Delivered as part of one of the largest invoice-automation go-lives in the group — order confirmations and certificates handled alongside a secure enterprise archive.','Group case study'],
+    faq:[['What is the order-to-cash process?','Order-to-cash (O2C) is the full cycle from a customer placing an order to the business receiving and recording payment: order capture, credit check, fulfilment, invoicing, collection and cash application. Automating it shortens the revenue cycle and reduces errors.'],['What is the difference between O2C and P2P?','Order-to-cash is the sell side — how you get paid by customers. Procure-to-pay is the buy side — how you pay suppliers. Most companies automate both.'],['Are O2C and accounts receivable the same?','No. Accounts receivable is one stage within order-to-cash — the tracking and collection of money owed. O2C is the whole cycle from order to recorded payment.'],['How do you reduce order-to-cash cycle time?','By automating order capture and invoicing, running automated credit checks, removing manual re-keying between systems, and integrating the flow with your core finance system.']]
+  },
+  'procure-to-pay':{
+    crumb:'Procure-to-Pay', eyebrow:'Finance process automation',
+    h1:'Procure-to-Pay, under control.',
+    sub:'Requisition to payment, automated — with the spend visibility and control finance teams have always wanted.',
+    lead:'Procure-to-pay covers everything from requesting a purchase to paying the supplier: requisition, purchase order, goods receipt, invoice matching, approval and payment. We automate it for transparency, control and speed.',
+    problem:['Maverick spend and manual approvals leak budget and time.','Invoice matching by hand is slow and error-prone.','No single view of what has been committed and paid.'],
+    solve:['Requisition and purchase-order automation','Automated PO and non-PO invoice matching','Multi-level approval workflows','Spend analytics and reporting','Clean integration with your ERP and content systems'],
+    outcomes:[['↑ control','Full spend visibility'],['↓ errors','Automated matching'],['audit-ready','Compliance built in']],
+    proof:['At a precision-engineering manufacturer, more than 1,000 back-office processes were redesigned and Procure-to-Pay automated — higher quality and efficiency, virtually invisible to end users.','Group case study'],
+    faq:[['What is the procure-to-pay process?','Procure-to-pay (P2P) covers requisition, purchase order, goods receipt, invoice matching, approval and payment. Automation adds transparency and control and cuts manual effort.'],['What are the key benefits of a procure-to-pay system?','Faster cycles, fewer errors, better spend visibility and control, stronger supplier relationships, and audit-ready compliance.'],['What should I look for in procure-to-pay software?','Supplier management, automated invoice matching (PO and non-PO), approval workflows, spend analytics, and clean integration with your existing ERP and content systems.']]
+  },
+  'ai-readiness':{
+    crumb:'AI Readiness', eyebrow:'Secure Information Management',
+    h1:'Get your business AI-ready.',
+    sub:'Before AI can create value from your data, that data has to be trustworthy. We make enterprise information governed, secure and ready.',
+    lead:'AI readiness is the degree to which your data, systems and governance are prepared for AI to be applied safely and effectively. A model is only as good as the information behind it — so readiness means data that is accurate, current, well-governed and free of anything that shouldn\'t reach a model.',
+    problem:['AI acting on stale or ungoverned data produces unreliable results.','Sensitive content can leak into prompts, logs or outputs.','No traceability means no way to explain or trust an AI decision.'],
+    solve:['A single, reliable source of truth across systems','Access and permission controls before data reaches a model','Compliance and lifecycle management with audit trails','Full traceability of what data was used, and why'],
+    outcomes:[['assess','Readiness assessment'],['govern','Data made trustworthy'],['safe','AI you can rely on']],
+    proof:['Our position, simply put: you unlock the full potential of AI by powering it with governed enterprise content — not by pointing a model at data no one has prepared.','Group point of view'],
+    faq:[['What is AI readiness?','The degree to which a company\'s data, systems and governance are prepared for AI to be applied safely and effectively. Without a trustworthy data foundation, AI produces unreliable or non-compliant results.'],['How do you assess a company\'s AI readiness?','By examining data quality and a single source of truth, access and permission controls, compliance and lifecycle management, and the ability to trace what data an AI used and why. The output is an assessment showing where the gaps are.'],['What are the pillars of AI readiness?','Governed access, protected data, one reliable source of truth, lifecycle and compliance, and safe automation with full traceability.']]
+  },
+  'invoice-to-pay':{
+    crumb:'Invoice-to-Pay', eyebrow:'Finance process automation',
+    h1:'Invoice-to-Pay, without the manual work.',
+    sub:'Capture, match, approve, post and archive supplier invoices automatically — faster approvals, fewer errors, audit-ready.',
+    lead:'Invoice-to-pay automation captures supplier invoices in any format, reads and validates them, matches them to purchase orders, routes them for approval, posts them to finance and archives them compliantly — replacing manual data entry end to end.',
+    problem:['Manual invoice entry is slow, costly and error-prone.','Missed early-payment discounts and duplicate payments cost real money.','Paper and scattered PDFs make audits painful.'],
+    solve:['Automated capture from paper, PDF and structured e-invoices','Automated header and line-item recognition','PO and non-PO matching with exception handling','Multi-level approval workflow and posting to finance','Compliant long-term archiving with full audit trail'],
+    outcomes:[['↓ cost','Lower cost per invoice'],['↑ speed','Faster approvals'],['audit-ready','Compliant archiving']],
+    proof:['Reliable hypercare support kept a production-critical invoice environment stable for a leading semiconductor manufacturer, in their words with fast response times and a highly professional team.','Group case study'],
+    faq:[['What is invoice-to-pay automation?','It captures supplier invoices, reads and validates them, matches them to purchase orders, routes them for approval, posts them to finance and archives them compliantly — replacing manual entry end to end.'],['What is the ROI of invoice automation?','The returns are lower processing cost per invoice, faster approvals that capture early-payment discounts, fewer errors and duplicate payments, and audit-ready archiving. High-volume teams see the fastest payback; we size it in a short assessment.'],['What is the difference between PO and non-PO invoices?','A PO invoice references a purchase order raised beforehand, so it can be matched automatically. A non-PO invoice has no prior order and needs manual coding — which is where automation and rules add the most value.']]
+  },
+  'hire-to-retire':{
+    crumb:'Hire-to-Retire', eyebrow:'Secure Information Management',
+    h1:'The hire-to-retire process, digitised.',
+    sub:'Every employee document — from onboarding to retirement — governed, compliant and instantly retrievable.',
+    lead:'Hire-to-retire is the full employee lifecycle: recruitment, onboarding, ongoing administration and development, and offboarding — together with the documents each stage generates. A digital employee file keeps all of it governed and instantly retrievable.',
+    problem:['HR documents scattered across countries and systems.','Compliance and retention hard to enforce manually.','Slow retrieval when documents are needed.'],
+    solve:['A single, secure digital employee file','Role-based access and standardized classification','Compliant retention and automated workflows','Integration with your core HR system','Migration of legacy personnel files into the cloud'],
+    outcomes:[['central','One digital employee file'],['compliant','Retention &amp; audit built in'],['instant','Fast, secure retrieval']],
+    proof:['For an organisation with over 10,000 employees, we built one centralised digital employee file — around 350,000 documents, rolled out across 12 EU countries on one governed platform.','Group case study'],
+    faq:[['What is the hire-to-retire process?','The full employee lifecycle in HR: recruitment, onboarding, administration and development, and offboarding — with the documents each stage generates, kept in a governed digital employee file.'],['What is a digital employee file?','A single, secure, structured record of every document relating to an employee, with role-based access, standardized classification and compliant retention, integrated with the core HR system.']]
+  },
+  'eam':{
+    crumb:'Enterprise Asset Management', eyebrow:'Secure Information Management',
+    h1:'Enterprise asset management, done right.',
+    sub:'Manage your physical assets across their whole lifecycle — maximise utilisation, reduce downtime, stay compliant.',
+    lead:'Enterprise asset management (EAM) is the management of a company\'s physical assets across their whole lifecycle — acquisition, operation, maintenance and disposal. It is distinct from financial asset management, and it is about keeping equipment productive and compliant.',
+    problem:['Unplanned downtime is expensive and disruptive.','Maintenance records scattered or on paper.','Hard to prove regulatory compliance for critical assets.'],
+    solve:['Asset lifecycle and maintenance management','Governed asset records and documentation','Compliance and audit support','Integration with operational and content systems'],
+    outcomes:[['↑ uptime','Reduced downtime'],['↑ life','Better asset utilisation'],['compliant','Audit-ready records']],
+    proof:['Part of the QPES business-process solution set, delivered on governed information foundations so asset data stays accurate and traceable.','Group capability'],
+    faq:[['What is enterprise asset management?','EAM is the management of a company\'s physical assets across their whole lifecycle — acquisition, operation, maintenance and disposal — to maximise utilisation, reduce downtime and stay compliant.'],['How is it different from financial asset management?','Enterprise asset management is about physical assets and equipment. Financial asset management is about investments and portfolios. They share a name but are entirely different disciplines.']]
+  }
+};
+
+// ---- company page data ----
+const CO = {
+  qpes:{name:'QPES',role:'The operational core · since 2006',lead:'QPES is where Secure Information Management gets built and run. It designs, integrates and operates the solutions that keep your information governed, protected and usable — on your systems, in the cloud, or both.',stats:[['&gt;270','projects'],['17','competence centres'],['13','countries'],['&gt;400','combined years']],
+    tech:[['Business Process-driven IM','Invoice-to-Pay · Procure-to-Pay · Order-to-Cash · Hire-to-Retire · Market-to-Contract · Demand-to-Deliver · Asset Management'],['Cost Reduction-driven IM','Information Governance Management · Content Lifecycle Management · Application Decommissioning Management'],['GRC-driven IM','Information Governance · Analytics &amp; Reporting Management · Information Archiving &amp; Records Management'],['AI-driven IM','Rule-Based &amp; Machine Learning AI · Context-Awareness &amp; Generative AI · Domain-Specific AI'],['Services','Prime Contracting · Business Process Advisory · Staff Augmentation · System Integration · Platform &amp; Application Managed Services · Learning Services · Business Process Outsourcing/Insourcing'],['Business Units','SBCS · SDCS · SISS · MCTS · BPOS · TMES']]},
+  cirro:{name:'Cirro',role:'Platform &amp; cloud · since 2016',lead:'Most companies run their information across several major systems that were never designed to talk to each other. Cirro makes them work as one — and moves them safely to the cloud when the time is right.',stats:[['2016','founded (CH)'],['10','cloud services'],['30','technologies covered']],
+    tech:[['Cirro Integration Suite','Connects ERP, CRM and HR systems with content-management applications. AI-based document recognition · business-object-based integration · full content-management capabilities.'],['Cirro Migration Suite','Migrates content-management systems, including on-premise-to-cloud transformation. Modular: input, target-system, configuration management and multithread processing.'],['Delivery &amp; partner model','Multi-tenant public cloud or hyperscaler. Four-tier partner model — reselling, OEM, service, technology.']]},
+  fortuna:{name:'Fortuna',role:'Delivery &amp; data · since 2023',lead:'Fortuna delivers and runs service-management and business solutions across Europe — directly, or as a nearshore partner behind other consultancies — and turns the data you already produce into insight you can act on.',stats:[['2023','founded (CH)'],['20','consultants'],['4','delivery countries']],
+    tech:[['Services','Prime Contracting · Strategy and Business Process Advisory · System Integration and Staff Augmentation · Managed and Academy Services'],['Business Units','SBCS · SPPS (Streaming Platforms Professional Services)'],['Computational Data Science','Statistical and machine-learning methods that turn operational data into forecasts and decisions. Sectors: food, durable goods, life sciences.']]}
+};
+
+function solHTML(id){
+  const d=SOL[id];
+  let out=`<div class="sol-hero"><div class="wrap"><div class="breadcrumb"><a onclick="go('home')">Home</a> / <a onclick="go('solutions-hub')">Solutions</a> / ${d.crumb}</div><div class="eyebrow">${d.eyebrow}</div><h1>${d.h1}</h1><p>${d.sub}</p></div></div>`;
+  out+=`<section><div class="wrap"><p class="lead-answer">${d.lead}</p></div></section>`;
+  out+=`<section class="band"><div class="wrap"><div class="two-col"><div><h3>The problem</h3><ul>${d.problem.map(x=>`<li>${x}</li>`).join('')}</ul></div><div><h3>How we solve it</h3><ul>${d.solve.map(x=>`<li>${x}</li>`).join('')}</ul></div></div></div></section>`;
+  out+=`<section class="band"><div class="wrap"><div class="sec-head"><div class="eyebrow">Outcomes</div><h2>What changes for you</h2></div><div class="outcomes">${d.outcomes.map(o=>`<div class="ocard"><div class="big">${o[0]}</div><p>${o[1]}</p></div>`).join('')}</div><div class="proof"><div class="txt">${d.proof[0]}</div><cite>${d.proof[1]}</cite></div></div></section>`;
+  out+=`<section class="band"><div class="wrap"><div class="sec-head"><div class="eyebrow">FAQ</div><h2>Common questions</h2></div><div class="faq">${d.faq.map(f=>`<details><summary>${f[0]}<span class="pl">+</span></summary><div class="a">${f[1]}</div></details>`).join('')}</div></div></section>`;
+  out+=`<div class="cta-band"><div class="wrap"><h2>See how this applies to your organisation.</h2><a class="btn" onclick="go('contact')">Talk to Philipp Sander</a></div></div>`;
+  return out;
+}
+function coHTML(id){
+  const d=CO[id];
+  let out=`<div class="sol-hero"><div class="wrap"><div class="breadcrumb"><a onclick="go('home')">Home</a> / <a onclick="go('companies')">Companies</a> / ${d.name}</div><div class="eyebrow">Group company</div><h1>${d.name}</h1><p>${d.role.replace(/&amp;/g,'&')}</p></div></div>`;
+  out+=`<div class="ledger"><div class="wrap">${d.stats.map(s=>`<div class="stat"><div class="v">${s[0]}</div><div class="l">${s[1]}</div></div>`).join('')}</div></div>`;
+  out+=`<section><div class="wrap"><p class="lead-answer">${d.lead}</p>`;
+  out+=`<details class="tech" open><summary>For technical teams: full solution detail</summary><div class="tbody">${d.tech.map(t=>`<div class="cap">${t[0]}</div><p>${t[1]}</p>`).join('')}</div></details>`;
+  out+=`</div></section>`;
+  out+=`<div class="cta-band"><div class="wrap"><h2>Bring ${d.name} in on your project.</h2><a class="btn" onclick="go('contact')">Talk to Philipp Sander</a></div></div>`;
+  return out;
+}
+
+// populate
+Object.keys(SOL).forEach(id=>{document.getElementById(id).innerHTML=solHTML(id);});
+Object.keys(CO).forEach(id=>{document.getElementById(id).innerHTML=coHTML(id);});
+
+// router
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const el=document.getElementById(id)||document.getElementById('home');
+  el.classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+  location.hash=id;
+  // nav active state
+  document.querySelectorAll('.nlink').forEach(a=>a.classList.remove('active'));
+}
+window.addEventListener('load',()=>{const h=location.hash.replace('#','');if(h&&document.getElementById(h))go(h);});
+</script>
+</body>
+</html>
