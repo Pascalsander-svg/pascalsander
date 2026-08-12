@@ -105,6 +105,24 @@
   @media (hover: none) { .wm-l { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { .wm-l { opacity: 1; transform: none; transition: none; } }
 
+  /* ---- Horizontal image strip (campaigns, portfolio, gallery) ----
+     Same behaviour as the video reel: fixed height, natural widths, so
+     portrait and landscape sit side by side and scroll sideways. */
+  .strip {
+    display: flex;
+    gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch;
+  }
+  .strip::-webkit-scrollbar { height: 6px; }
+  .strip::-webkit-scrollbar-thumb { background: color-mix(in srgb, transparent, var(--color-ink) 25%); border-radius: 3px; }
+  .strip figure { scroll-snap-align: start; margin: 0; flex: 0 0 auto; }
+  .strip img {
+    height: 460px; width: auto; max-width: none;
+    object-fit: cover; display: block; background: var(--color-bone);
+  }
+  @media (max-width: 640px) { .strip img { height: 320px; } }
+  .strip .caption { margin-top: 0.5rem; }
+
   /* ---- Motion reel (video strip) ----
      Height-based so portrait (9:16) and landscape (16:9) clips can sit
      side by side at the same height without being cropped. */
