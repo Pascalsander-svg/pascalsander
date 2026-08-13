@@ -57,6 +57,22 @@
   </script>
   <link rel="canonical" href="https://pascalsander.ch/modeling.html" />
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Portfolio: assembling grid (signature moment) */
+    .pf-grid{ column-width:220px; column-gap:1rem; }
+    @media (min-width:1200px){ .pf-grid{ column-width:250px; } }
+    @media (max-width:640px){ .pf-grid{ column-width:150px; column-gap:.6rem; } }
+    .pf-grid figure{ -webkit-column-break-inside:avoid; break-inside:avoid; margin:0 0 1rem; }
+    .pf-grid figure img{ width:100%; height:auto; display:block; background:var(--color-bone); }
+    .pf-grid.pf-anim figure{
+      opacity:0;
+      transform: translate3d(var(--dx,0), var(--dy,60px), 0) rotate(var(--r,0deg)) scale(.86);
+      transition: opacity .7s ease, transform .9s cubic-bezier(.2,.8,.2,1);
+      transition-delay: var(--d, 0ms);
+      will-change: transform, opacity;
+    }
+    .pf-grid.pf-anim figure.in{ opacity:1; transform:none; }
+  </style>
 </head>
 <body>
   <header class="site-head">
@@ -442,7 +458,7 @@
     </article>
 
     <section class="px-5 md:px-12 pb-16">
-      <div class="strip reveal">
+      <div class="pf-grid" id="pf-grid">
         <figure><img src="assets/portfolio/pf-01.jpg" alt="Pascal Sander in a long black coat, seated in a dark studio" width="1050" height="1400" loading="lazy" /></figure>
         <figure><img src="assets/portfolio/pf-02.jpg" alt="Pascal Sander in an open black blazer on a city rooftop" width="898" height="1400" loading="lazy" /></figure>
         <figure><img src="assets/portfolio/pf-03.jpg" alt="Pascal Sander with a hand in his hair, dark studio portrait" width="975" height="1400" loading="lazy" /></figure>
@@ -552,5 +568,6 @@
   </footer>
   <div class="cursor" id="cursor" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 2 L2 16 L6 12 L9 19 L11.5 18 L8.5 11 L14 11 Z" fill="#fff" stroke="#000" stroke-width="1"/></svg></div>
   <script src="js/main.js" defer></script>
+  <script src="js/modeling.js" defer></script>
 </body>
 </html>
