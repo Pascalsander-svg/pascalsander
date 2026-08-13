@@ -1,0 +1,5 @@
+# Security contact for pascalsander.ch
+Contact: mailto:pascal.sander@bluewin.ch
+Preferred-Languages: de, en
+Canonical: https://pascalsander.ch/.well-known/security.txt
+Expires: 2027-12-31T23:59:59.000Z
