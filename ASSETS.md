@@ -34,3 +34,19 @@
 - Modeling Kap. 3 (Studio/Leiter): Fotograf-Credit fehlt. Im Code steht ein
   auskommentierter figcaption-Platzhalter direkt beim Bild.
 - Modeling Kap. 9 (Couple): Fotograf-Credit fehlt. Ebenso auskommentiert.
+
+
+## Update (dieser Stand)
+
+- Portfolio (modeling.html): 21 neue Bilder ergänzt als assets/portfolio/pf-36.jpg … pf-56.jpg.
+- Polas: pf-17 / pf-18 / pf-19 aus dem Portfolio-Grid entfernt und als eigener
+  Bereich "Polas" direkt unter den Model-Stats eingefügt. Dateien liegen jetzt
+  unter assets/polas/pola-01.jpg … pola-03.jpg.
+- Logos: bvk.png und hwz.png aus index.html entfernt und gelöscht.
+- datenschutz.html: [TODO]-Hinweis entfernt.
+- consulting.html: veralteter FAQ-[TODO]-Kommentar entfernt (Antworten sind vollständig).
+- entrepreneurship.html: veralteter BILD-SLOT-Kommentar beim Ballone-Bild entfernt.
+
+### Offen / zu prüfen
+- Es wurden 21 Dateien geliefert (nicht 20). Die zusätzliche ist pf-41.
+- Mehrere Ski-Aufnahmen ähneln sich (pf-41, pf-42, pf-43, pf-55, pf-56) — evtl. ausdünnen.
