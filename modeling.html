@@ -72,6 +72,23 @@
       will-change: transform, opacity;
     }
     .pf-grid.pf-anim figure.in{ opacity:1; transform:none; }
+    .pf-grid figure img{ cursor:zoom-in; }
+    /* Lightbox */
+    .lb{ position:fixed; inset:0; z-index:200; display:none; align-items:center; justify-content:center;
+         background:color-mix(in srgb, var(--color-ink) 92%, transparent); padding:4vmin; }
+    .lb.open{ display:flex; }
+    .lb-stage{ margin:0; display:flex; flex-direction:column; align-items:center; gap:.7rem; }
+    .lb-stage img{ max-width:92vw; max-height:82vh; width:auto; height:auto; object-fit:contain;
+                   box-shadow:0 24px 70px rgba(0,0,0,.55); }
+    .lb-cap{ font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.7rem;
+             letter-spacing:.06em; text-transform:uppercase; color:#f2f0ebaa; text-align:center; max-width:60ch; }
+    .lb-x{ position:absolute; top:2vmin; right:2.4vmin; }
+    .lb-nav{ position:absolute; top:50%; transform:translateY(-50%); font-size:2.4rem; padding:.4rem 1rem; }
+    .lb-prev{ left:1vmin; } .lb-next{ right:1vmin; }
+    .lb button{ background:none; border:none; color:#fff; line-height:1; cursor:pointer; opacity:.75; transition:opacity .2s; }
+    .lb .lb-x{ font-size:2rem; }
+    .lb button:hover{ opacity:1; }
+    @media (max-width:640px){ .lb-nav{ font-size:1.8rem; padding:.3rem .6rem; } }
   </style>
 </head>
 <body>
@@ -569,5 +586,6 @@
   <div class="cursor" id="cursor" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 2 L2 16 L6 12 L9 19 L11.5 18 L8.5 11 L14 11 Z" fill="#fff" stroke="#000" stroke-width="1"/></svg></div>
   <script src="js/main.js" defer></script>
   <script src="js/modeling.js" defer></script>
+  <script src="js/lightbox.js" defer></script>
 </body>
 </html>
