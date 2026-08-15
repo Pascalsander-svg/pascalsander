@@ -73,6 +73,9 @@
     }
     .pf-grid.pf-anim figure.in{ opacity:1; transform:none; }
     .pf-grid figure img{ cursor:zoom-in; }
+    /* Migrol campaign shown small (secondary next to the other jobs) */
+    .strip img.cmp-sm{ height:200px; }
+    @media (max-width:640px){ .strip img.cmp-sm{ height:140px; } }
     /* Lightbox */
     .lb{ position:fixed; inset:0; z-index:200; display:none; align-items:center; justify-content:center;
          background:color-mix(in srgb, var(--color-ink) 92%, transparent); padding:4vmin; }
@@ -155,16 +158,16 @@
     <section class="px-6 pb-10">
       <div class="strip reveal">
         <figure>
-          <img src="assets/campaign-migrol.jpg" alt="Migrol company card, contactless payment at a fuel station" width="1396" height="372" loading="lazy" />
-          <figcaption class="caption">Migrol &middot; campaign</figcaption>
-        </figure>
-        <figure>
           <img src="assets/campaign-scoop.jpg" alt="Scoop festival campaign, Dir die Frontrow" width="538" height="277" loading="lazy" />
           <figcaption class="caption">Scoop campaign</figcaption>
         </figure>
         <figure>
           <img src="assets/campaign-bfu.jpg" alt="bfu campaign ad, Nie ohne meine Boje, sicher schwimmen in See und Fluss" width="1080" height="1350" loading="lazy" />
           <figcaption class="caption">bfu campaign</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/campaign-migrol.jpg" alt="Migrol company card, contactless payment at a fuel station" width="1396" height="372" loading="lazy" class="cmp-sm" />
+          <figcaption class="caption">Migrol &middot; campaign</figcaption>
         </figure>
       </div>
     </section>
