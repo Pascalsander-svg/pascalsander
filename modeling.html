@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; media-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.web3forms.com; form-action 'self'; frame-src https://www.srf.ch https://srf.ch; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; media-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.web3forms.com https://www.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self'; frame-src https://www.srf.ch https://srf.ch; upgrade-insecure-requests" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Modeling &amp; Acting &middot; Pascal Sander, Swiss Male Model</title>
   <meta name="description" content="Pascal Sander, Swiss male model represented in Switzerland, Munich, Milan and Amsterdam. Runway shows, campaigns and fashion jobs, my story in ten chapters." />
@@ -76,6 +76,12 @@
     /* Migrol campaign shown small (secondary next to the other jobs) */
     .strip img.cmp-sm{ height:200px; }
     @media (max-width:640px){ .strip img.cmp-sm{ height:140px; } }
+    /* HWZ campaign shown very large next to bfu */
+    .strip img.cmp-lg{ height:680px; }
+    @media (max-width:640px){ .strip img.cmp-lg{ height:400px; } }
+    /* Two large videos side by side (stacked on small screens) */
+    .vid-pair{ display:flex; flex-wrap:wrap; gap:1.5rem; }
+    .vid-pair figure{ flex:1 1 440px; min-width:0; margin:0; }
     /* Lightbox */
     .lb{ position:fixed; inset:0; z-index:200; display:none; align-items:center; justify-content:center;
          background:color-mix(in srgb, var(--color-ink) 92%, transparent); padding:4vmin; }
@@ -93,6 +99,7 @@
     .lb button:hover{ opacity:1; }
     @media (max-width:640px){ .lb-nav{ font-size:1.8rem; padding:.3rem .6rem; } }
   </style>
+  <script defer src="js/consent.js"></script>
 </head>
 <body>
   <header class="site-head">
@@ -155,16 +162,6 @@
       </div>
     </section>
 
-    <!-- ============ POLAS WITH BEARD ============ -->
-    <section class="px-6 pb-12">
-      <div class="strip reveal">
-        <figure><img src="assets/polas/pola-beard-01.jpg" alt="Pascal Sander digitals with beard, black t-shirt and jeans, front" width="931" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/polas/pola-beard-02.jpg" alt="Pascal Sander digitals with beard, black t-shirt and jeans, side" width="931" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/polas/pola-beard-03.jpg" alt="Pascal Sander digitals with beard, black t-shirt, front portrait" width="931" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/polas/pola-beard-04.jpg" alt="Pascal Sander digitals with beard, close-up portrait" width="931" height="1400" loading="lazy" /></figure>
-      </div>
-    </section>
-
     <section class="px-6 pb-10">
       <div class="strip reveal">
         <figure>
@@ -174,6 +171,10 @@
         <figure>
           <img src="assets/campaign-bfu.jpg" alt="bfu campaign ad, Nie ohne meine Boje, sicher schwimmen in See und Fluss" width="1080" height="1350" loading="lazy" />
           <figcaption class="caption">bfu campaign</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/campaign-hwz.jpg" alt="HWZ campaign, Main Character Energy, Finde das Studium, das zu deinem Leben passt" width="1080" height="1080" loading="lazy" class="cmp-lg" />
+          <figcaption class="caption">HWZ campaign</figcaption>
         </figure>
         <figure>
           <img src="assets/campaign-migrol.jpg" alt="Migrol company card, contactless payment at a fuel station" width="1396" height="372" loading="lazy" class="cmp-sm" />
@@ -188,23 +189,38 @@
         <figure><img src="assets/runway/runway-baumano.jpg" alt="Pascal Sander on the runway for Baumano" width="664" height="834" loading="lazy" /><figcaption class="caption">Baumano</figcaption></figure>
         <figure><img src="assets/runway/runway-pave-metzger.jpg" alt="Pascal Sander on the runway, Pavé Pavé x Maison Metzger" width="933" height="1400" loading="lazy" /><figcaption class="caption">Pavé Pavé &times; Maison Metzger</figcaption></figure>
         <figure><img src="assets/runway/runway-ombre.jpg" alt="Pascal Sander on the runway for Ombre" width="934" height="1400" loading="lazy" /><figcaption class="caption">Ombre</figcaption></figure>
+        <figure><img src="assets/runway/runway-lovelyapple-basel.jpg" alt="Pascal Sander on the runway for Lovely Apple at Basel Fashion Week" width="934" height="1400" loading="lazy" /><figcaption class="caption">Lovely Apple &middot; Basel Fashion Week</figcaption></figure>
       </div>
     </section>
 
-    <!-- ============ SPEC AD — ACQUA DI GIO ============ -->
+    <!-- ============ SPEC AD, ACQUA DI GIO + HWZ CAMPAIGN VIDEO ============ -->
     <section class="px-6 pb-14">
-      <figure style="max-width:900px;margin:0">
-        <div style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;background:var(--color-bone)">
-          <video
-            controls preload="none" playsinline
-            poster="assets/video/aqua-di-gio-spec.jpg"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border:0"
-            title="Pascal Sander — Acqua di Gio spec ad">
-            <source src="assets/video/aqua-di-gio-spec.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <figcaption class="caption">Acqua di Gio &middot; spec ad</figcaption>
-      </figure>
+      <div class="vid-pair">
+        <figure>
+          <div style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;background:var(--color-bone)">
+            <video
+              controls preload="none" playsinline
+              poster="assets/video/aqua-di-gio-spec.jpg"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border:0"
+              title="Pascal Sander — Acqua di Gio spec ad">
+              <source src="assets/video/aqua-di-gio-spec.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <figcaption class="caption">Acqua di Gio &middot; spec ad</figcaption>
+        </figure>
+        <figure>
+          <div style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;background:var(--color-bone)">
+            <video
+              controls preload="none" playsinline
+              poster="assets/video/hwz-campaign.jpg"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border:0"
+              title="Pascal Sander — HWZ campaign">
+              <source src="assets/video/hwz-campaign.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <figcaption class="caption">HWZ &middot; campaign</figcaption>
+        </figure>
+      </div>
     </section>
 
     <!-- ============ TV — MINI CHUCHI, DINI CHUCHI (SRF) ============ -->
@@ -246,6 +262,12 @@
         <figure>
           <video data-autoplay muted loop playsinline preload="metadata" poster="assets/reel/reel-04.jpg">
             <source src="assets/reel/reel-04.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="caption">Botty &middot; campaign</figcaption>
+        </figure>
+        <figure>
+          <video data-autoplay muted loop playsinline preload="metadata" poster="assets/reel/reel-08.jpg">
+            <source src="assets/reel/reel-08.mp4" type="video/mp4" />
           </video>
           <figcaption class="caption">Botty &middot; campaign</figcaption>
         </figure>
@@ -587,6 +609,12 @@
         <figure><img src="assets/portfolio/pf-54.jpg" alt="Pascal Sander and a partner running down a street, black and white" width="1500" height="999" loading="lazy" /></figure>
         <figure><img src="assets/portfolio/pf-55.jpg" alt="Pascal Sander in ski goggles holding gear on a snowy peak" width="1001" height="1500" loading="lazy" /></figure>
         <figure><img src="assets/portfolio/pf-56.jpg" alt="Pascal Sander shirtless outdoors, looking to the side, black and white" width="1001" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-57.jpg" alt="Pascal Sander and a model before a sky backdrop, Botty autumn campaign" width="1000" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-58.jpg" alt="Pascal Sander in a leather jacket and Chelsea boots, Botty autumn campaign" width="947" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-59.jpg" alt="Pascal Sander in a kimono with a wooden sword over his shoulder, black and white" width="998" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-60.jpg" alt="Pascal Sander from behind, hands clasped, black and white studio portrait" width="998" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-61.jpg" alt="Pascal Sander shirtless by the sea at dusk, Replay" width="1500" height="1000" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-62.jpg" alt="Pascal Sander shirtless by the sea, Replay, black and white" width="1500" height="1000" loading="lazy" /></figure>
       </div>
     </section>
 
