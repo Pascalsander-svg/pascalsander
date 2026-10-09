@@ -79,13 +79,12 @@
     /* HWZ campaign shown very large next to bfu */
     .strip img.cmp-lg{ height:680px; }
     @media (max-width:640px){ .strip img.cmp-lg{ height:400px; } }
-    /* Large videos in one row: two 16:9 plus one vertical on the far right (stacked on small screens) */
-    .vid-pair{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,.3164fr); gap:1.5rem; align-items:start; }
+    /* Large videos in one row: three 16:9 side by side (stacked on small screens) */
+    .vid-pair{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.5rem; align-items:start; }
     .vid-pair figure{ min-width:0; margin:0; }
-    .vid-pair .vid-v video{ width:100%; aspect-ratio:9/16; object-fit:cover; background:var(--color-bone); display:block; }
-    @media (max-width:900px){ .vid-pair{ grid-template-columns:1fr; } .vid-pair .vid-v{ max-width:260px; } }
+    @media (max-width:900px){ .vid-pair{ grid-template-columns:1fr; } }
     /* Section titles */
-    .sec-title{ font-family:var(--font-display); font-weight:800; letter-spacing:-.03em; text-transform:uppercase; font-size:clamp(1.8rem,5vw,3.2rem); line-height:1; margin:0 0 1.4rem; }
+    .sec-title{ font-family:var(--font-display); font-weight:800; letter-spacing:-.03em; text-transform:uppercase; font-size:clamp(1.25rem,2.6vw,1.8rem); line-height:1; margin:0 0 1.2rem; }
     /* Lightbox */
     .lb{ position:fixed; inset:0; z-index:200; display:none; align-items:center; justify-content:center;
          background:color-mix(in srgb, var(--color-ink) 92%, transparent); padding:4vmin; }
@@ -158,6 +157,7 @@
 
     <!-- ============ POLAS / DIGITALS (ohne Bart) ============ -->
     <section class="px-6 pb-12">
+      <h2 class="sec-title reveal">Polas</h2>
       <div class="strip reveal">
         <figure><img src="assets/polas/pola-01.jpg" alt="Pascal Sander digitals, white t-shirt, front" width="931" height="1400" loading="lazy" /></figure>
         <figure><img src="assets/polas/pola-02.jpg" alt="Pascal Sander digitals, white t-shirt, portrait" width="931" height="1400" loading="lazy" /></figure>
@@ -167,6 +167,7 @@
 
     <!-- ============ POLAS / DIGITALS (mit Bart) ============ -->
     <section class="px-6 pb-12">
+      <h2 class="sec-title reveal">Polas with beard</h2>
       <div class="strip reveal">
         <figure><img src="assets/polas/pola-beard-01.jpg" alt="Pascal Sander digitals with beard, black t-shirt and flared jeans, front, full length" width="931" height="1400" loading="lazy" /></figure>
         <figure><img src="assets/polas/pola-beard-02.jpg" alt="Pascal Sander digitals with beard, black t-shirt and flared jeans, side profile" width="931" height="1400" loading="lazy" /></figure>
@@ -225,10 +226,16 @@
           </div>
           <figcaption class="caption">HWZ &middot; campaign</figcaption>
         </figure>
-        <figure class="vid-v">
-          <video data-autoplay muted loop playsinline preload="none" poster="assets/reel/feed-04.jpg" title="Pascal Sander, Galaxus Mobile">
-            <source src="assets/reel/feed-04.mp4" type="video/mp4" />
-          </video>
+        <figure>
+          <div style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;background:var(--color-bone)">
+            <video
+              data-autoplay muted loop playsinline preload="metadata"
+              poster="assets/reel/reel-07.jpg"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;border:0"
+              title="Pascal Sander, Galaxus Mobile">
+              <source src="assets/reel/reel-07.mp4" type="video/mp4" />
+            </video>
+          </div>
           <figcaption class="caption">Galaxus &middot; Mobile</figcaption>
         </figure>
       </div>
@@ -294,12 +301,6 @@
           </video>
           <figcaption class="caption">Celldermal</figcaption>
         </figure>
-        <figure>
-          <video data-autoplay muted loop playsinline preload="metadata" poster="assets/reel/reel-07.jpg">
-            <source src="assets/reel/reel-07.mp4" type="video/mp4" />
-          </video>
-          <figcaption class="caption">Galaxus Mobile</figcaption>
-        </figure>
       </div>
     </section>
 
@@ -329,6 +330,12 @@
             <source src="assets/reel/feed-02.mp4" type="video/mp4" />
           </video>
           <figcaption class="caption">Galaxus &middot; TV</figcaption>
+        </figure>
+        <figure>
+          <video data-autoplay muted loop playsinline preload="none" poster="assets/reel/feed-04.jpg">
+            <source src="assets/reel/feed-04.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="caption">Galaxus &middot; Mobile</figcaption>
         </figure>
         <figure>
           <video data-autoplay muted loop playsinline preload="none" poster="assets/reel/feed-03.jpg">
