@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; media-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.web3forms.com; form-action 'self'; frame-src https://www.srf.ch https://srf.ch; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; media-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self'; frame-src https://www.srf.ch https://srf.ch; upgrade-insecure-requests" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <script src="js/lang.js"></script>
+  <script defer src="js/consent.js"></script>
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
   <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
@@ -109,6 +110,14 @@
     .lb .lb-x{ font-size:2rem; }
     .lb button:hover{ opacity:1; }
     @media (max-width:640px){ .lb-nav{ font-size:1.8rem; padding:.3rem .6rem; } }
+    /* SRF embed: loads only after a click (privacy) */
+    .srf-load{ position:absolute; inset:0; width:100%; height:100%; border:0; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.7rem; padding:1.5rem; text-align:center; font:inherit; color:#f2f0eb; background:radial-gradient(120% 90% at 50% 40%,#2a2a2e 0%,#0b0b0c 70%); }
+    .srf-load .srf-play{ width:68px; height:68px; border-radius:50%; border:1.5px solid #f2f0eb; display:grid; place-items:center; transition:transform .25s ease, background .25s ease; }
+    .srf-load .srf-play::before{ content:""; margin-left:6px; border-style:solid; border-width:11px 0 11px 18px; border-color:transparent transparent transparent #f2f0eb; }
+    .srf-load:hover .srf-play,.srf-load:focus-visible .srf-play{ transform:scale(1.06); background:rgba(242,240,235,.12); }
+    .srf-load .srf-t{ font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:.85rem; }
+    .srf-load .srf-n{ font-size:.78rem; opacity:.7; max-width:34rem; line-height:1.45; }
+    .srf-load:focus-visible{ outline:2px solid var(--color-signal,#ff5a3c); outline-offset:-4px; }
   </style>
 </head>
 <body>
@@ -270,13 +279,7 @@
     <section class="px-6 pb-14">
       <figure style="max-width:900px;margin:0">
         <div style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;background:var(--color-bone)">
-          <iframe
-            src="https://www.srf.ch/play/embed?urn=urn:srf:video:1c802c76-6691-4f3f-8826-30ea3c0d8fb9"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
-            allow="encrypted-media *; fullscreen"
-            allowfullscreen scrolling="no"
-            title="Pascal Sander bei Mini Chuchi, dini Chuchi (SRF)"
-            loading="lazy"></iframe>
+          <button type="button" class="srf-load" data-embed-src="https://www.srf.ch/play/embed?urn=urn:srf:video:1c802c76-6691-4f3f-8826-30ea3c0d8fb9" data-embed-title="Pascal Sander bei Mini Chuchi, dini Chuchi (SRF)"><span class="srf-play" aria-hidden="true"></span><span class="srf-t">Mini Chuchi, dini Chuchi · SRF</span><span class="srf-n">Click to play. The video is loaded from SRF, which may set its own cookies.</span></button>
         </div>
         <figcaption class="caption">Mini Chuchi, dini Chuchi &middot; SRF</figcaption>
       </figure>
@@ -748,6 +751,7 @@
         <a class="foot-link" href="https://growis.ch" target="_blank" rel="noopener">Growis</a>
         <a class="foot-link" href="impressum.html">Impressum</a>
         <a class="foot-link" href="datenschutz.html">Datenschutz</a>
+        <a class="foot-link" href="#cookies" data-consent-open>Cookie settings</a>
       </div>
     </div>
   </footer>

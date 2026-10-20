@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; media-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.web3forms.com; form-action 'self'; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; media-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self'; upgrade-insecure-requests" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <script src="js/lang.js"></script>
+  <script defer src="js/consent.js"></script>
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
+  <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <title>Impressum &middot; Pascal Sander</title>
   <meta name="description" content="Impressum." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,6 +62,7 @@
         <a class="foot-link" href="https://growis.ch" target="_blank" rel="noopener">Growis</a>
         <a class="foot-link" href="impressum.html">Impressum</a>
         <a class="foot-link" href="datenschutz.html">Datenschutz</a>
+        <a class="foot-link" href="#cookies" data-consent-open>Cookie settings</a>
       </div>
     </div>
   </footer>

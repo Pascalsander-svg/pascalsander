@@ -4,11 +4,16 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; media-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.web3forms.com; form-action 'self'; upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
+<meta content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; media-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self'; upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
 <meta content="strict-origin-when-cross-origin" name="referrer"/>
   <script src="../js/lang.js"></script>
+  <script defer src="../js/consent.js"></script>
 
-<title>Datenschutz · Pascal Sander</title>
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
+  <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <title>Datenschutz · Pascal Sander</title>
 <meta content="Datenschutzerklärung." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -52,7 +57,9 @@
 <p><strong>Hosting.</strong> Diese Website wird bei GitHub Pages gehostet. Beim Aufruf der Website verarbeitet der Hoster technisch notwendige Daten (z. B. IP-Adresse, Zeitpunkt des Zugriffs) in Server-Logs.</p>
 <p><strong>Kontaktformular.</strong> Wenn du das Kontaktformular nutzt, werden die eingegebenen Daten (Name, E-Mail-Adresse, Nachricht, gewählte Leistungen) über den Dienst Web3Forms an mich per E-Mail übermittelt. Die Daten werden ausschliesslich zur Bearbeitung der Anfrage verwendet.</p>
 <p><strong>Schriftarten.</strong> Diese Website lädt Schriftarten von Google Fonts. Dabei wird deine IP-Adresse an Google übertragen.</p>
-<p><strong>Cookies und Tracking.</strong> Diese Website setzt keine Cookies und verwendet keine Analyse- oder Tracking-Dienste.</p>
+      <p><strong>Google Analytics.</strong> Mit deiner Einwilligung nutzt diese Website Google Analytics&nbsp;4, einen Webanalysedienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin&nbsp;4, Irland. Google Analytics setzt Cookies und erhebt pseudonyme Nutzungsdaten, zum Beispiel besuchte Seiten, Verweildauer, ungefährer Standort sowie Geräte- und Browserangaben. So sehe ich, wie die Website genutzt wird. Google Analytics&nbsp;4 speichert keine IP-Adressen. Die Daten können an Server von Google in den USA übermittelt werden; Google ist unter dem EU-U.S. und dem Swiss-U.S. Data Privacy Framework zertifiziert. Die Daten werden nach 14&nbsp;Monaten gelöscht. Werbefunktionen und Google Signals sind deaktiviert. Ohne deine Einwilligung wird Google Analytics nicht geladen. Du kannst deine Einwilligung jederzeit über den Link «Cookie-Einstellungen» im Seitenfuss widerrufen. Mehr dazu: <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">policies.google.com/privacy</a>.</p>
+      <p><strong>Eingebettete Videos (SRF).</strong> Auf der Seite «Modeling &amp; Acting» ist ein Video von SRF (Schweizer Radio und Fernsehen) eingebunden. Es wird erst geladen, wenn du darauf klickst. Dann überträgt dein Browser Daten wie deine IP-Adresse an SRF, und SRF kann eigene Cookies setzen. Es gilt die Datenschutzerklärung von SRF.</p>
+      <p><strong>Cookies.</strong> Abgesehen von Google Analytics (nur nach deiner Einwilligung) und dem SRF-Video (nur nach einem Klick darauf) setzt diese Website keine Cookies. Deine Auswahl im Cookie-Banner speichert dein Browser lokal (localStorage).</p>
 <p><strong>Spracheinstellung.</strong> Wenn du die Sprache der Website wechselst, speichert dein Browser diese Auswahl lokal (localStorage), damit sie bei deinem nächsten Besuch berücksichtigt wird. Diese Information verlässt dein Gerät nicht und wird weder an mich noch an Dritte übermittelt.</p>
 <p><strong>Deine Rechte.</strong> Du hast das Recht auf Auskunft, Berichtigung und Löschung deiner Personendaten. Wende dich dazu an die oben genannte E-Mail-Adresse.</p>
 <p>[TODO: Text prüfen und bei Bedarf rechtlich verifizieren lassen. Diese Vorlage ist keine Rechtsberatung.]</p>
@@ -68,6 +75,7 @@
 <a class="foot-link" href="https://growis.ch" rel="noopener" target="_blank">Growis</a>
 <a class="foot-link" href="impressum.html">Impressum</a>
 <a class="foot-link" href="datenschutz.html">Datenschutz</a>
+        <a class="foot-link" href="#cookies" data-consent-open>Cookie-Einstellungen</a>
 </div>
 </div>
 </footer>
