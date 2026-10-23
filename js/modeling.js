@@ -1,12 +1,12 @@
-/* Modeling page: portfolio images assemble from a scatter into the grid.
+/* Modeling page: portfolio and couple images assemble from a scatter into the grid.
    Progressive enhancement: without JS (or with reduced motion) the grid is
    simply shown. Uses transform/opacity only (GPU friendly) and reveals each
    image once as it scrolls into view. */
 (function () {
   "use strict";
 
-  var grid = document.getElementById("pf-grid");
-  if (!grid) return;
+  var grids = Array.prototype.slice.call(document.querySelectorAll(".pf-grid"));
+  if (!grids.length) return;
 
   var reduce = window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -14,6 +14,7 @@
   // No animation: leave the grid fully visible.
   if (reduce || !("IntersectionObserver" in window)) return;
 
+  grids.forEach(function (grid) {
   var figs = Array.prototype.slice.call(grid.querySelectorAll("figure"));
   if (!figs.length) return;
 
@@ -49,4 +50,5 @@
   }, { root: null, rootMargin: "0px 0px -6% 0px", threshold: 0.08 });
 
   figs.forEach(function (f) { io.observe(f); });
+  });
 })();

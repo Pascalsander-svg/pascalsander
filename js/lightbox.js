@@ -4,10 +4,9 @@
 (function () {
   "use strict";
 
-  var grid = document.getElementById("pf-grid");
-  if (!grid) return;
-  var imgs = Array.prototype.slice.call(grid.querySelectorAll("img"));
-  if (!imgs.length) return;
+  var grids = Array.prototype.slice.call(document.querySelectorAll(".pf-grid"));
+  if (!grids.length) return;
+  var imgs = [];
 
   var lb = document.createElement("div");
   lb.className = "lb";
@@ -49,8 +48,11 @@
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
 
-  imgs.forEach(function (im, i) {
-    im.addEventListener("click", function () { open(i); });
+  grids.forEach(function (grid) {
+    var list = Array.prototype.slice.call(grid.querySelectorAll("img"));
+    list.forEach(function (im, i) {
+      im.addEventListener("click", function () { imgs = list; open(i); });
+    });
   });
   lb.querySelector(".lb-next").addEventListener("click", function (e) { e.stopPropagation(); show(idx + 1); });
   lb.querySelector(".lb-prev").addEventListener("click", function (e) { e.stopPropagation(); show(idx - 1); });
