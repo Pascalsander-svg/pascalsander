@@ -11,14 +11,14 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
   <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <title>Modeling &amp; Acting &middot; Pascal Sander, Swiss Male Model</title>
-  <meta name="description" content="Pascal Sander, Swiss male model represented in Zurich, Munich, Milan and Amsterdam. Featured in Harper's Bazaar, on Swiss TV and in cinema commercials." />
+  <title>Pascal Sander · Male Model Zurich | Modeling &amp; Acting</title>
+  <meta name="description" content="Pascal Sander, male model in Zurich. Mother agency Fotogen, represented in Amsterdam and Milan. Featured in Harper&#x27;s Bazaar and L&#x27;Officiel." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Modeling &amp; Acting &middot; Pascal Sander, Swiss Male Model" />
-  <meta property="og:description" content="Pascal Sander, Swiss male model represented in Zurich, Munich, Milan and Amsterdam. Featured in Harper's Bazaar, on Swiss TV and in cinema commercials." />
+  <meta property="og:title" content="Pascal Sander · Male Model Zurich | Modeling &amp; Acting" />
+  <meta property="og:description" content="Pascal Sander, male model in Zurich. Mother agency Fotogen, represented in Amsterdam and Milan. Featured in Harper&#x27;s Bazaar and L&#x27;Officiel." />
   <meta property="og:url" content="https://pascalsander.ch/modeling.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json">
@@ -39,7 +39,31 @@
         "name": "Which agencies represent you?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "I work with Fotogen in Zurich, New Generation in Amsterdam, Talents Models in Munich and Models Milano, and I am building toward the larger fashion markets in Paris and beyond."
+          "text": "My mother agency is Fotogen in Zurich. I am also represented by New Generation in Amsterdam and Models Milano in Milan, and I am building toward the larger fashion markets in Paris and beyond."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are your measurements?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Height 189 cm (6′2″), chest 100 cm (39.5″), waist 80 cm (31.5″), hips 94 cm (37″), shoes EU 43 (US 10, UK 9), suit EU 50–52 (US/UK 40–42), brown hair and blue eyes. I am based in Zurich, hold a Swiss passport and am available worldwide. My sedcard can be downloaded as a PDF on this page."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which languages do you speak?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Swiss German (Zurich dialect) and Standard German are both my native languages. I also speak fluent English and basic French."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What skills do you bring to a set?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Acting experience from short films, TV and commercials, advanced calisthenics, a brown belt in karate after five years of training, boxing basics, volleyball, backflips, skiing, ice skating, bouldering, tennis, breakdance basics, professional level rope skipping, rowing and swimming. I also sing (choir experience), hold a car driving licence and am fine with swimwear and underwear jobs."
         }
       },
       {
@@ -63,7 +87,7 @@
         "name": "Are you available for bookings?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. For booking requests you can reach me through the contact form, or bookings can also be directed to office@fotogen.ch."
+          "text": "Yes. Bookings go through my mother agency Fotogen (office@fotogen.ch, +41 44 268 90 90) or through my agencies in Amsterdam and Milan. You can also reach me through the contact form. Paris and I are also bookable as a couple."
         }
       }
     ]
@@ -126,6 +150,26 @@
     .srf-load .srf-t{ font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:.85rem; }
     .srf-load .srf-n{ font-size:.78rem; opacity:.7; max-width:34rem; line-height:1.45; }
     .srf-load:focus-visible{ outline:2px solid var(--color-signal,#ff5a3c); outline-offset:-4px; }
+      /* Info block, folds (collapsible sections) */
+    .info-grid{ display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:2.5rem; align-items:start; }
+    @media (max-width:860px){ .info-grid{ grid-template-columns:1fr; gap:1.5rem; } }
+    .stats .imp{ display:block; font-weight:400; font-size:.8rem; color:var(--color-mute); margin-top:.15rem; letter-spacing:0; }
+    .info-side{ display:flex; flex-direction:column; }
+    .info-side .pill{ align-self:flex-start; margin-bottom:1.2rem; }
+    .ig-line{ margin-top:1.1rem; font-size:.95rem; }
+    .ig-line a, .info-list a, .skills a, .fold-note a{ text-decoration:underline; text-underline-offset:3px; }
+    .fold{ border-top:1px solid color-mix(in srgb,transparent,var(--color-ink) 14%); }
+    .fold[open] > summary .chapter-icon:after{ opacity:0; transform:translate(-50%) scaleY(0); }
+    .fold-body{ padding:0 0 1.3rem; }
+    .info-list{ list-style:none; padding:0; margin:0; display:grid; gap:.9rem; font-size:.95rem; line-height:1.5; }
+    .info-list .tag{ color:var(--color-mute); font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; margin-left:.45rem; }
+    .skills{ display:grid; gap:.95rem; margin:0; }
+    .skills dt{ letter-spacing:.1em; text-transform:uppercase; color:var(--color-mute); font-size:.68rem; margin-bottom:.2rem; }
+    .skills dd{ margin:0; font-size:.95rem; line-height:1.55; }
+    .fold-sec{ border-top:0; }
+    .fold-sec > summary{ padding:.2rem 0 1.2rem; }
+    .fold-sec > summary .sec-title{ margin:0; }
+    .fold-note{ margin:0 0 1.4rem; font-size:.95rem; }
   </style>
 </head>
 <body>
@@ -158,28 +202,93 @@
         <section class="px-6 pt-6 md:pt-10 pb-8">
       <h1 class="page-title mt-3">Modeling &amp; Acting</h1>
       <div class="lead prose-ed mt-6"><p>Hey you look like Edward from Twilight, do you model (a sentence I hear on a weekly basis)?</p>
-          <p>Modeling is my way of expressing myself, constantly throwing myself into new situations, meeting great people, and exploring a completely different side of myself. Let me tell you a bit more about my story.</p></div>
+          <p>Modeling is my way of expressing myself, constantly throwing myself into new situations, meeting great people, and exploring a completely different side of myself. You will find my full story at the bottom of this page.</p></div>
+      <p class="ig-line">Instagram <a href="https://www.instagram.com/pascalsander_/" target="_blank" rel="noopener">@pascalsander_</a> (7k+)</p>
     </section>
     <section class="px-6 pb-12">
       <figure class="reveal" style="max-width:460px;margin-left:auto"><img src="assets/modeling-hero-couple.jpg" alt="Pascal Sander and a model embracing in the water, black and white" width="1098" height="1600" class="w-full h-auto w-full h-auto" fetchpriority="high" /></figure>
     </section>
 
 
-    <!-- ============ MY STORY ============ -->
-    <section class="px-5 md:px-12 pb-12">
-      <dl class="stats">
-        <div><dt>Height</dt><dd>189 cm</dd></div>
-        <div><dt>Chest</dt><dd>100 cm</dd></div>
-        <div><dt>Waist</dt><dd>80 cm</dd></div>
-        <div><dt>Hips</dt><dd>94 cm</dd></div>
-        <div><dt>Shoe (EU)</dt><dd>43</dd></div>
-        <div><dt>Suit size</dt><dd>50&ndash;52</dd></div>
+        <!-- ============ INFO / BOOKING ============ -->
+    <section class="px-5 md:px-12 pb-14">
+      <div class="info-grid">
+        <dl class="stats" style="max-width:none">
+        <div><dt>Height</dt><dd>189 cm<span class="imp">6′2″</span></dd></div>
+        <div><dt>Chest</dt><dd>100 cm<span class="imp">39.5″</span></dd></div>
+        <div><dt>Waist</dt><dd>80 cm<span class="imp">31.5″</span></dd></div>
+        <div><dt>Hips</dt><dd>94 cm<span class="imp">37″</span></dd></div>
+        <div><dt>Shoes</dt><dd>EU 43<span class="imp">US 10, UK 9</span></dd></div>
+        <div><dt>Suit</dt><dd>EU 50–52<span class="imp">US/UK 40–42</span></dd></div>
         <div><dt>Hair</dt><dd>Brown</dd></div>
         <div><dt>Eyes</dt><dd>Blue</dd></div>
-        <div><dt>Based in</dt><dd>Zürich, Switzerland</dd></div>
-        <div><dt>Agencies</dt><dd>Fotogen Zurich &middot; New Generation Amsterdam &middot; Talents Models Munich &middot; Models Milano</dd></div>
-      </dl>
+        <div><dt>Based in</dt><dd>Zurich<span class="imp">Switzerland</span></dd></div>
+        </dl>
+        <div class="info-side">
+          <a class="pill inline-flex" href="assets/pascal-sander-sedcard.pdf" download>Download sedcard (PDF)</a>
+          <details class="fold">
+            <summary class="chapter-summary"><span class="label-mono">Agencies</span><span class="chapter-icon" aria-hidden="true"></span></summary>
+            <div class="fold-body"><ul class="info-list">
+            <li><a href="https://fotogen.ch/model/pascal-s/" target="_blank" rel="noopener">Fotogen, Zürich</a><span class="tag">Mother agency</span><br /><a href="mailto:office@fotogen.ch">office@fotogen.ch</a>, <a href="tel:+41442689090">+41 44 268 90 90</a></li>
+            <li><a href="https://www.newgenerationmodels.com/men/1802-pascal/" target="_blank" rel="noopener">New Generation, Amsterdam</a></li>
+            <li><a href="https://www.modelsmilano.com/boys/main/259-pascal-sander" target="_blank" rel="noopener">Models Milano, Milan</a></li>
+            </ul></div>
+          </details>
+          <details class="fold">
+            <summary class="chapter-summary"><span class="label-mono">Skills, languages &amp; info</span><span class="chapter-icon" aria-hidden="true"></span></summary>
+            <div class="fold-body"><dl class="skills">
+            <div><dt>Languages</dt><dd>Swiss German (Zurich dialect), native; Standard German, native; English, fluent; French, basic</dd></div>
+            <div><dt>Acting</dt><dd>Self-taught, with experience in short films, TV (SRF) and commercials</dd></div>
+            <div><dt>Sports</dt><dd>Calisthenics (advanced), fitness, karate (brown belt, 5 years), boxing (basic), volleyball, backflip, skiing, ice skating, bouldering, tennis, breakdance (basic), rope skipping (professional level), rowing, swimming</dd></div>
+            <div><dt>Music</dt><dd>Singing (choir)</dd></div>
+            <div><dt>Other</dt><dd>Car driving licence, swimwear and underwear: yes, Swiss passport, available worldwide</dd></div>
+            <div><dt>Couple bookings</dt><dd>Together with Paris, <a href="https://www.instagram.com/paris.vil/" target="_blank" rel="noopener">@paris.vil</a></dd></div>
+            <div><dt>Featured in</dt><dd>Harper's Bazaar Serbia, L'Officiel Monaco</dd></div>
+            </dl></div>
+          </details>
+        </div>
+      </div>
     </section>
+
+    <!-- ============ PORTFOLIO (MAIN) ============ -->
+    <section class="px-5 md:px-12 pb-16">
+      <details class="fold fold-sec" open>
+        <summary class="chapter-summary"><h2 class="sec-title">Portfolio</h2><span class="chapter-icon" aria-hidden="true"></span></summary>
+      <div class="pf-grid" id="main-grid">
+        <figure><img src="assets/portfolio/pf-08.jpg" alt="Pascal Sander in a dark blazer and white shirt, close colour portrait" width="933" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-69.jpg" alt="Pascal Sander in a dark open robe, black and white studio portrait" width="1065" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/entrepreneurship-ballone.jpg" alt="Pascal Sander smiling by the lake in a brown polo shirt" width="1067" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/runway/runway-mejor-francisco-lofficiel-monaco.jpg" alt="Pascal Sander on the runway for Mejor Francisco, featured in L&#x27;Officiel Monaco" width="1050" height="1574" loading="lazy" /></figure>
+        <figure><img src="assets/modeling-turtleneck.jpg" alt="Pascal Sander in a black rollneck sweater, curly hair, harbour behind" width="1066" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-64.jpg" alt="Pascal Sander shirtless standing in a lake at sunset" width="1064" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-48.jpg" alt="Pascal Sander in a beanie and dark coat, black and white studio portrait" width="1125" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/campaign-alero.jpg" alt="Alero campaign, Pascal Sander in a white t-shirt in a garden" width="1080" height="1350" loading="lazy" /></figure>
+        <figure><img src="assets/runway/runway-jennifer-gehr-harpers-bazaar.jpg" alt="Pascal Sander on the runway for Jennifer Gehr, featured in Harper&#x27;s Bazaar Serbia" width="1050" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/modeling-britta.jpg" alt="Pascal Sander, black and white close-up portrait" width="1200" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-65.jpg" alt="Pascal Sander in a long black coat in an industrial setting" width="1067" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-30.jpg" alt="Pascal Sander in a white tank top against a textured wall" width="1050" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-67.jpg" alt="Pascal Sander in a leather jacket and wide trousers, Botty campaign" width="1067" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-68.jpg" alt="Pascal Sander and Paris embracing in the water" width="1053" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/gallery-02.jpg" alt="Pascal Sander in a black tank top, leaning against a concrete wall" width="857" height="1200" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-66.jpg" alt="Pascal Sander in a sheer open shirt and satin trousers, dark studio" width="1067" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/consulting-portrait.jpg" alt="Pascal Sander in an open black coat, studio portrait" width="1143" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-71.jpg" alt="Pascal Sander shirtless at the lake in warm evening light" width="1145" height="1456" loading="lazy" /></figure>
+        <figure><img src="assets/runway/runway-perrandor-couture-fashion-night.jpg" alt="Pascal Sander on the runway for Perrandor at Couture Fashion Night" width="1050" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/gallery-04.jpg" alt="Pascal Sander, close black and white portrait with wet hair" width="800" height="1200" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-32.jpg" alt="Pascal Sander in a black tank top and beige trousers, studio" width="933" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-63.jpg" alt="Pascal Sander in an ivory cable-knit sweater on a rocky alpine slope" width="1066" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/gallery-01.jpg" alt="Pascal Sander sitting in a white shirt and black coat, studio" width="800" height="1200" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-70.jpg" alt="Pascal Sander shirtless with arms raised against a red backdrop" width="1065" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-28.jpg" alt="Pascal Sander in a black printed hoodie, streetwear look" width="934" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/health-hero.jpg" alt="Pascal Sander shirtless by the lake, arm raised, black and white" width="1280" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-58.jpg" alt="Pascal Sander in a leather jacket and Chelsea boots, Botty autumn campaign" width="947" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-61.jpg" alt="Pascal Sander shirtless by the sea at dusk, Replay" width="1500" height="1000" loading="lazy" /></figure>
+        <figure><img src="assets/runway/runway-lovelyapple-basel.jpg" alt="Pascal Sander on the runway for Lovely Apple at Basel Fashion Week" width="458" height="757" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-29.jpg" alt="Pascal Sander in a black printed t-shirt, streetwear look" width="934" height="1400" loading="lazy" /></figure>
+      </div>
+      </details>
+    </section>
+
 
     <!-- ============ POLAS / DIGITALS (ohne Bart) ============ -->
     <section class="px-6 pb-12">
@@ -422,13 +531,143 @@
       </div>
     </section>
 
+
+
+
+
+    <!-- ============ COUPLE ============ -->
+    <section class="px-5 md:px-12 pb-16">
+      <details class="fold fold-sec">
+        <summary class="chapter-summary"><h2 class="sec-title">Couple</h2><span class="chapter-icon" aria-hidden="true"></span></summary>
+      <p class="fold-note">Also bookable as a couple with Paris, <a href="https://www.instagram.com/paris.vil/" target="_blank" rel="noopener">@paris.vil</a> on Instagram.</p>
+      <div class="pf-grid" id="couple-grid">
+        <figure><img src="assets/couple/couple-25.jpg" alt="Pascal Sander holding a jacket over Paris, both laughing" width="1065" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-06.jpg" alt="Paris on Pascal Sander's back, laughing, in a green valley" width="1066" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-54.jpg" alt="Pascal Sander and Paris running hand in hand down a street, black and white" width="1500" height="999" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-02.jpg" alt="Pascal Sander and Paris on a mountain ridge, burgundy shawl and felt hat" width="1066" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-31.jpg" alt="Pascal Sander and Paris crouching by a small fire on a foggy beach" width="1066" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-22.jpg" alt="Pascal Sander kissing Paris on the forehead, black and white" width="1600" height="1065" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-08.jpg" alt="Pascal Sander lifting Paris in a meadow in front of a forested hill" width="1066" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-01.jpg" alt="Pascal Sander and Paris sharing a tender moment on an alpine meadow, mountains behind" width="1066" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-50.jpg" alt="Pascal Sander and Paris back to back, black and white" width="994" height="1066" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-15.jpg" alt="Pascal Sander and Paris laughing together under a blue sky" width="1064" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-10.jpg" alt="Pascal Sander and Paris sitting in the grass, embracing" width="1066" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-23.jpg" alt="Pascal Sander and Paris walking arm in arm on a street, black and white" width="1600" height="1065" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-29.jpg" alt="Pascal Sander and Paris with lanterns on a misty shore at dusk" width="1600" height="1066" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-14.jpg" alt="Pascal Sander and Paris dancing in front of a sunflower field" width="1600" height="1064" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-18.jpg" alt="Paris leaning on Pascal Sander's bare shoulder by a window, black and white" width="1065" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-07.jpg" alt="Pascal Sander and Paris walking arm in arm on a mountain path" width="1066" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-45.jpg" alt="Pascal Sander and Paris on an industrial street" width="1500" height="998" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-26.jpg" alt="Pascal Sander and Paris in black outfits in a dance pose, white studio" width="1064" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-05.jpg" alt="Pascal Sander seated on a chair in a meadow with Paris behind him, burgundy tones" width="1066" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/couple/couple-16.jpg" alt="Pascal Sander lifting Paris against a blue sky, both smiling" width="1064" height="1600" loading="lazy" /></figure>
+      </div>
+      </details>
+    </section>
+
+    <!-- ============ ADDITIONAL PICTURES ============ -->
+    <section class="px-5 md:px-12 pb-16">
+      <details class="fold fold-sec">
+        <summary class="chapter-summary"><h2 class="sec-title">Additional pictures</h2><span class="chapter-icon" aria-hidden="true"></span></summary>
+      <div class="pf-grid" id="pf-grid">
+        <figure><img src="assets/portfolio/pf-05.jpg" alt="Pascal Sander shirtless at a harbour, hand to his chin" width="915" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-33.jpg" alt="Pascal Sander in a black tank top, studio portrait" width="934" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-23.jpg" alt="Pascal Sander in a black and white magazine editorial" width="780" height="1016" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-38.jpg" alt="Pascal Sander in silhouette beside a lit panel" width="999" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-59.jpg" alt="Pascal Sander in a kimono with a wooden sword over his shoulder, black and white" width="998" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-13.jpg" alt="Pascal Sander shirtless, seated in a moody studio" width="933" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-25.jpg" alt="Pascal Sander in a ribbed sweater, dark studio portrait" width="640" height="960" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-46.jpg" alt="Pascal Sander and a model seated before a sky backdrop, Gola campaign" width="1500" height="999" loading="lazy" /></figure>
+        <figure><img src="assets/gallery-03.jpg" alt="Pascal Sander standing in a river, laughing" width="800" height="1200" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-10.jpg" alt="Pascal Sander dressed in black, seated by a window in low light" width="959" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-40.jpg" alt="Pascal Sander close up, hand in his hair, blazer and white shirt" width="678" height="983" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-01.jpg" alt="Pascal Sander in a long black coat, seated in a dark studio" width="1050" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-22.jpg" alt="Pascal Sander on the cover of Quadro magazine" width="1085" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-15.jpg" alt="Pascal Sander in an open white shirt by a lake" width="933" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-42.jpg" alt="Pascal Sander in ski gear holding skis and a helmet in falling snow" width="999" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-09.jpg" alt="Pascal Sander in an open white shirt leaning by a window" width="933" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-37.jpg" alt="Pascal Sander in profile under warm light, dramatic studio" width="999" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/gallery-05.jpg" alt="Pascal Sander in a black coat and open white shirt, looking down" width="837" height="1200" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-62.jpg" alt="Pascal Sander shirtless by the sea, Replay, black and white" width="1500" height="1000" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-20.jpg" alt="Pascal Sander in deep red light, holding a small flame" width="931" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-07.jpg" alt="Pascal Sander in profile outdoors, open jacket, black and white" width="968" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-56.jpg" alt="Pascal Sander shirtless outdoors, looking to the side, black and white" width="1001" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-34.jpg" alt="Pascal Sander and a partner in formalwear, black and white" width="933" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-39.jpg" alt="Pascal Sander behind textured glass, face half obscured" width="999" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-43.jpg" alt="Pascal Sander in ski goggles on a snowy slope, black and white" width="999" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-11.jpg" alt="Pascal Sander in a brown leather jacket indoors" width="640" height="960" loading="lazy" /></figure>
+        <figure><img src="assets/gallery-07.jpg" alt="Pascal Sander in a shearling jacket, black and white" width="1067" height="1600" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-04.jpg" alt="Pascal Sander shirtless by the water, chin resting on his hand" width="922" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-57.jpg" alt="Pascal Sander and a model before a sky backdrop, Botty autumn campaign" width="1000" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-53.jpg" alt="Pascal Sander from behind in a shearling jacket, hands on his head" width="999" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-12.jpg" alt="Pascal Sander in an open green jacket against greenery" width="933" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-02.jpg" alt="Pascal Sander in an open black blazer on a city rooftop" width="898" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-16.jpg" alt="Pascal Sander shirtless with a jacket over one shoulder, dark studio" width="933" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-51.jpg" alt="Pascal Sander seated on stone steps in a leather jacket" width="999" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-41.jpg" alt="Pascal Sander skiing, skis over his shoulder in the mountains" width="999" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/gallery-06.jpg" alt="Pascal Sander shirtless studio portrait, hand in hair" width="800" height="1200" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-03.jpg" alt="Pascal Sander with a hand in his hair, dark studio portrait" width="975" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-35.jpg" alt="Pascal Sander and a partner holding a cake, laughing" width="933" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-14.jpg" alt="Pascal Sander with wet hair, close black and white portrait" width="933" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-47.jpg" alt="Pascal Sander and a model before a sky backdrop, Gola campaign" width="894" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-55.jpg" alt="Pascal Sander in ski goggles holding gear on a snowy peak" width="1001" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-31.jpg" alt="Pascal Sander outdoors in a long wrap skirt on a garden path" width="934" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-60.jpg" alt="Pascal Sander from behind, hands clasped, black and white studio portrait" width="998" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-36.jpg" alt="Pascal Sander in motion blur under red light" width="999" height="1500" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-06.jpg" alt="Pascal Sander shirtless, pushing back wet hair by the water" width="1005" height="1400" loading="lazy" /></figure>
+        <figure><img src="assets/portfolio/pf-24.jpg" alt="Pascal Sander in a brown polo by a lake at golden hour" width="1600" height="1068" loading="lazy" /></figure>
+      </div>
+      </details>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="px-5 md:px-12 pb-16">
+      <h2 class="sec-title reveal">FAQ</h2>
+      <div class="mt-2">
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="m-faq-0">How do you become a model in Switzerland?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a" id="m-faq-0"><div class="prose-ed" style="font-size:0.98rem"><p>In my experience it usually starts with a strong set of digitals or a first shoot, then applying to reputable agencies and building a portfolio through real jobs. I describe my own path, including the setbacks, across the ten chapters above.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="m-faq-1">Which agencies represent you?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a" id="m-faq-1"><div class="prose-ed" style="font-size:0.98rem"><p>My mother agency is Fotogen in Zurich. I am also represented by New Generation in Amsterdam and Models Milano in Milan, and I am building toward the larger fashion markets in Paris and beyond.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="m-faq-2">What are your measurements?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a" id="m-faq-2"><div class="prose-ed" style="font-size:0.98rem"><p>Height 189 cm (6′2″), chest 100 cm (39.5″), waist 80 cm (31.5″), hips 94 cm (37″), shoes EU 43 (US 10, UK 9), suit EU 50–52 (US/UK 40–42), brown hair and blue eyes. I am based in Zurich, hold a Swiss passport and am available worldwide. My sedcard can be downloaded as a PDF on this page.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="m-faq-3">Which languages do you speak?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a" id="m-faq-3"><div class="prose-ed" style="font-size:0.98rem"><p>Swiss German (Zurich dialect) and Standard German are both my native languages. I also speak fluent English and basic French.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="m-faq-4">What skills do you bring to a set?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a" id="m-faq-4"><div class="prose-ed" style="font-size:0.98rem"><p>Acting experience from short films, TV and commercials, advanced calisthenics, a brown belt in karate after five years of training, boxing basics, volleyball, backflips, skiing, ice skating, bouldering, tennis, breakdance basics, professional level rope skipping, rowing and swimming. I also sing (choir experience), hold a car driving licence and am fine with swimwear and underwear jobs.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="m-faq-5">What kind of modeling jobs do you take?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a" id="m-faq-5"><div class="prose-ed" style="font-size:0.98rem"><p>Runway shows, video commercials, campaigns and fashion editorials, mostly in Switzerland. Recent work includes campaigns for brands such as Galaxus, bfu, Nikon, Scoop and Botty.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="m-faq-6">Where have you been featured?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a" id="m-faq-6"><div class="prose-ed" style="font-size:0.98rem"><p>On Swiss television, on the cinema screen and in print. Highlights include SRF's "Mini Chuchi, dini Chuchi", national TV and cinema commercials, and Harper's Bazaar, one of the world's most coveted fashion magazines, where my runway look for designer Jennifer Gehr appeared in the Serbian edition. My work has also been published in Quadro magazine, including a cover, and in several other editorials.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-q" aria-expanded="false" aria-controls="m-faq-7">Are you available for bookings?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-a" id="m-faq-7"><div class="prose-ed" style="font-size:0.98rem"><p>Yes. Bookings go through my mother agency Fotogen (office@fotogen.ch, +41 44 268 90 90) or through my agencies in Amsterdam and Milan. You can also reach me through the contact form. Paris and I are also bookable as a couple.</p></div></div>
+          </div>
+      </div>
+    </section>
+
+    <!-- ============ MY STORY ============ -->
     <article class="px-5 md:px-12 pb-24">
       <div class="flex flex-wrap items-baseline justify-between gap-4 border-t border-ink/12 pt-12 reveal">
+        <h2 class="sec-title" style="margin:0">My story</h2>
         <button type="button" id="toggle-all-chapters" class="chapter-toggle-all" data-state="collapsed">Expand all</button>
       </div>
 
       <!-- CHAPTER 1 -->
-      <details class="chapter reveal" open>
+      <details class="chapter reveal">
         <summary class="chapter-summary">
           <span class="label-mono">Chapter 01 &middot; Early beginnings</span>
           <span class="chapter-icon" aria-hidden="true"></span>
@@ -475,7 +714,7 @@
           <div class="prose-ed mt-6">
           <p>Shortly after returning, I found myself in a small kind of existential crisis. Because I had spent a considerable amount of money in America, which was of course worthwhile since I was able to travel a lot, and because the university there was not particularly demanding, I clearly felt underchallenged. While I was also part of the Students Real Estate Club of the University of St. Gallen during my time in the U.S., I noticed that I had not worked for four months. When I returned, I immediately started again at my previous job, for which I had already done the interview while still in America, and joined a new project.</p>
           <p>Another mission, however, was to become a signed model. Although I had gained some experience in the U.S., I approached this process like a complete beginner. My polaroids were not good, and every reputable modeling agency in Switzerland either rejected my application or did not respond at all. Only one agency, my current mother agency Fotogen, gave me a chance because they saw potential in me. This opportunity came with certain conditions. The owner and CEO, Jad, made it clear that I first needed strong professional photos in order to have a chance in such a competitive market.</p>
-          <p>He offered me a shooting, but I declined and assured him that I would contact him again once I had obtained solid image material. I then began searching for photographers who would be willing to take photos for free with an inexperienced model who had poor model measurements in order to build their portfolio. Yeah, good luck with that.</p>
+          <p>He offered me a shooting, but I declined and assured him that I would contact him again once I had obtained solid image material. I then began searching for photographers who would be willing to take photos for free with an inexperienced model in order to build their portfolio. Yeah, good luck with that.</p>
           <p>My approach was simple. I contacted photographers with concrete moodboards and assured them that the images would primarily benefit their portfolio rather than mine. I also made sure never to mention that I actually had very little experience with modeling. I looked at which photographers appeared on the websites and social media channels of major agencies and also checked the photographer who had taken pictures of me in the past to see whether there were others worth contacting. After sending about 25 direct messages and waiting roughly a week, one photographer responded positively, and I had my first shooting.</p>
           <p>Suddenly, despite the experience I had gained in America, I became nervous and stiff. I tried to imitate poses I had seen online and was simply not myself. I did not yet have the confidence and maturity that the job required, but everyone starts somewhere. The photographer noticed this and gave me some advice. I assume he also realized that I had not done this very often. Looking back, I was very happy with the photos, but I was genuinely surprised by how little confidence I had at the time. It was probably because I was the center of attention and could not shift the focus onto anyone else, since it was a one-to-one session.</p>
         </div>
@@ -591,10 +830,8 @@
         <div class="chapter-body">
           <div class="prose-ed mt-6">
           <p>So, dear Mr. Fotogen CEO, how do I actually break through now? The answer is more complicated than it might appear. Looking more closely at the industry, one quickly sees endless lines at castings, extremely slim men, and countless models already signed with agencies.</p>
-          <p>Fortunately, Jad is very well connected. He managed quite quickly to place me with Talents Models in Munich, which at the time wanted to expand its men's division and saw potential in someone like me. The process was straightforward and they regularly send inquiries.</p>
+          <p>Fortunately, Jad is very well connected. He managed quite quickly to place me with Talents Models in Munich, which at the time wanted to expand its men's division and saw potential in someone like me. The process was straightforward.</p>
           <p>That was only the beginning. At the beginning of February, after discussing it with Jad, I went to Milan and signed with Models Milano, which I was very pleased about. Fortunately, I had brought my old school model book with me, not only my sedcard, which turned out to be a good decision.</p>
-          <p>The details of the Milan trip are not necessary here, but one thing became clear. Measurements cannot be compensated for with good posing or charisma. If the clothes do not fit, they simply do not fit. This mainly applies to fashion campaigns.</p>
-          <p>The gap was small, but my chest measurement was slightly too large. The issue itself is manageable. Losing three to four kilograms and reducing water retention solves it. It was necessary to remain competitive for larger brands and to avoid limiting opportunities for Milan or Paris Fashion Week.</p>
           <p>At the same time, my own approach to securing well paid jobs outside the agency system with limited image rights worked very well. This also helped strengthen my credibility. I was able to participate in a larger shoe campaign for Botty, a brand with many locations across Switzerland, which became one of my few fashion campaigns so far.</p>
           <p>At the moment discussions are ongoing with agencies in Paris to place me there strategically as well. Since the university semester has started again, I do significantly fewer TFP shoots. If I do them, then only with photographers who are personally convincing or whose work clearly strengthens my portfolio. An example is shown below.</p>
           <p>Modeling has become something I genuinely enjoy and a real passion has developed. Where the professional path leads from here remains open.</p>
@@ -637,163 +874,17 @@
         <div class="chapter-body">
           <div class="prose-ed mt-6">
           <p>Over time I have settled deeply into the whole scene and taken on a great many jobs in Switzerland, many of which you can find across this website. They range from runway shows to video commercials, and there have been a fair number of fashion jobs as well. I was also able to secure another agency, New Generation in Amsterdam.</p>
-          <p>There was, however, a larger setback. When I spoke with my agent in Milan, he told me that I am roughly twenty kilograms too heavy for runway in Milan, Paris, London and comparable markets. I had not been aware of this. I thought I was only slightly over the measurements, so it hit me hard.</p>
-          <p>Even so, I am not giving up on this dream. Instead I am trying to earn my way in through recognition and through the other fashion shows I walk in Switzerland, where the measurements are taken less strictly, and to open the door to Milan and Paris that way, without having to lose so many kilograms. I spent years doing bodybuilding and already sit at a very low body fat. Losing that much muscle would be a waste and, in my view, would hurt my overall look. Since I pursue modeling only as a side activity and do not place all my cards on it, I have decided not to change my body so drastically just to attempt that route.</p>
-          <p>Other setbacks have happened too. A Vogue shoot, for example, was cancelled at the very last second, and I have run into problems with contracts where people tried to take advantage of me. You could call that the shadow side of the industry.</p>
+          <p>There have also been setbacks. A Vogue shoot, for example, was cancelled at the very last second, and I have run into problems with contracts where people tried to take advantage of me. You could call that the shadow side of the industry.</p>
           <p>Nonetheless, I enjoy it immensely. I have been able to realize a great deal together with my girlfriend, who also models and whom you will often see here, and I have landed many exciting jobs for large Swiss brands.</p>
           <p>Lately I have noticed that acting is an enormous advantage for big advertising campaigns, which is why I have applied for several supporting roles in smaller films. I am still waiting to hear back, and it makes all of this more enjoyable than ever.</p>
-          <p>At the same time, my time management is worse than ever. I have started working at <a href="https://growis.ch" target="_blank" rel="noopener">Growis</a>, which is very time-intensive, and combined with my studies, my job at the insurance company, modeling and sport it has taken a real toll on my schedule. As a result I have to be more selective about which modeling jobs I accept, and I do not always have time, which has already led to the occasional conflict. That does not bother me, though, because I still get to do what I love.</p>
           <p>On top of that, I have expanded my social media presence with modeling videos, personal real talk, get-ready clips and a few critical business memes, in order to become better known and to carry my dream a little further.</p>
           </div>
         </div>
       </details>
     </article>
 
-    <!-- ============ COUPLE ============ -->
-    <section class="px-5 md:px-12 pb-16">
-      <h2 class="sec-title reveal">Couple</h2>
-      <div class="pf-grid" id="couple-grid">
-        <figure><img src="assets/couple/couple-25.jpg" alt="Pascal Sander holding a jacket over Paris, both laughing" width="1065" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-06.jpg" alt="Paris on Pascal Sander's back, laughing, in a green valley" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-54.jpg" alt="Pascal Sander and Paris running hand in hand down a street, black and white" width="1500" height="999" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-02.jpg" alt="Pascal Sander and Paris on a mountain ridge, burgundy shawl and felt hat" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-31.jpg" alt="Pascal Sander and Paris crouching by a small fire on a foggy beach" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-22.jpg" alt="Pascal Sander kissing Paris on the forehead, black and white" width="1600" height="1065" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-08.jpg" alt="Pascal Sander lifting Paris in a meadow in front of a forested hill" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-01.jpg" alt="Pascal Sander and Paris sharing a tender moment on an alpine meadow, mountains behind" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-50.jpg" alt="Pascal Sander and Paris back to back, black and white" width="994" height="1066" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-15.jpg" alt="Pascal Sander and Paris laughing together under a blue sky" width="1064" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-10.jpg" alt="Pascal Sander and Paris sitting in the grass, embracing" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-23.jpg" alt="Pascal Sander and Paris walking arm in arm on a street, black and white" width="1600" height="1065" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-29.jpg" alt="Pascal Sander and Paris with lanterns on a misty shore at dusk" width="1600" height="1066" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-14.jpg" alt="Pascal Sander and Paris dancing in front of a sunflower field" width="1600" height="1064" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-18.jpg" alt="Paris leaning on Pascal Sander's bare shoulder by a window, black and white" width="1065" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-07.jpg" alt="Pascal Sander and Paris walking arm in arm on a mountain path" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-45.jpg" alt="Pascal Sander and Paris on an industrial street" width="1500" height="998" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-26.jpg" alt="Pascal Sander and Paris in black outfits in a dance pose, white studio" width="1064" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-05.jpg" alt="Pascal Sander seated on a chair in a meadow with Paris behind him, burgundy tones" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-16.jpg" alt="Pascal Sander lifting Paris against a blue sky, both smiling" width="1064" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-24.jpg" alt="Pascal Sander and Paris about to kiss, wind in her hair, black and white" width="1600" height="1065" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-28.jpg" alt="Pascal Sander and Paris walking hand in hand along a foggy lakeshore with lanterns" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-09.jpg" alt="Pascal Sander and Paris standing on a rocky slope, ivory and burgundy outfits" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-20.jpg" alt="Pascal Sander and Paris cheek to cheek, close-up, black and white" width="1065" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-17.jpg" alt="Pascal Sander and Paris lying in the water, seen from above" width="1600" height="1064" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-11.jpg" alt="Pascal Sander and Paris lying in the grass, seen from above" width="1600" height="1066" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-49.jpg" alt="Pascal Sander and Paris dancing in leather jackets, black and white" width="999" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-30.jpg" alt="Pascal Sander and Paris walking away along a pebble beach with lanterns" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-21.jpg" alt="Pascal Sander and Paris on white bedding, editorial" width="933" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-44.jpg" alt="Pascal Sander and Paris close together, black and white studio portrait" width="998" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-13.jpg" alt="Pascal Sander and Paris on a picnic blanket under a tree, flower basket beside them" width="1600" height="1064" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-04.jpg" alt="Pascal Sander and Paris on a wooden bench on an alpine meadow" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-52.jpg" alt="Pascal Sander and Paris laughing in a schoolyard, black and white" width="1500" height="999" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-21.jpg" alt="Paris standing behind Pascal Sander with her arm around him, dark studio background" width="1065" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-32.jpg" alt="Pascal Sander and Paris holding hands between lanterns on a foggy lakeshore" width="1600" height="1066" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-19.jpg" alt="Pascal Sander kissing Paris, close-up, black and white" width="1065" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-03.jpg" alt="Pascal Sander and Paris in black outfits in front of a grey backdrop outdoors" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-27.jpg" alt="Paris in a white satin dress behind Pascal Sander in a black suit" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-26.jpg" alt="Pascal Sander and Paris embracing in the water, black and white" width="961" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/couple/couple-12.jpg" alt="Pascal Sander and Paris seated together on an alpine meadow, eyes closed" width="1066" height="1600" loading="lazy" /></figure>
-      </div>
-    </section>
-
-    <!-- ============ PORTFOLIO ============ -->
-    <section class="px-5 md:px-12 pb-16">
-      <h2 class="sec-title reveal">Portfolio</h2>
-      <div class="pf-grid" id="pf-grid">
-        <figure><img src="assets/portfolio/pf-05.jpg" alt="Pascal Sander shirtless at a harbour, hand to his chin" width="915" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-33.jpg" alt="Pascal Sander in a black tank top, studio portrait" width="934" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-23.jpg" alt="Pascal Sander in a black and white magazine editorial" width="780" height="1016" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-38.jpg" alt="Pascal Sander in silhouette beside a lit panel" width="999" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-59.jpg" alt="Pascal Sander in a kimono with a wooden sword over his shoulder, black and white" width="998" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-28.jpg" alt="Pascal Sander in a black printed hoodie, streetwear look" width="934" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-63.jpg" alt="Pascal Sander in an ivory cable-knit sweater on a rocky alpine slope" width="1066" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-13.jpg" alt="Pascal Sander shirtless, seated in a moody studio" width="933" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-32.jpg" alt="Pascal Sander in a black tank and beige trousers, studio" width="933" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-25.jpg" alt="Pascal Sander in a ribbed sweater, dark studio portrait" width="640" height="960" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-46.jpg" alt="Pascal Sander and a model seated before a sky backdrop, Gola campaign" width="1500" height="999" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-10.jpg" alt="Pascal Sander dressed in black, seated by a window in low light" width="959" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-40.jpg" alt="Pascal Sander close up, hand in his hair, blazer and white shirt" width="678" height="983" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-01.jpg" alt="Pascal Sander in a long black coat, seated in a dark studio" width="1050" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-61.jpg" alt="Pascal Sander shirtless by the sea at dusk, Replay" width="1500" height="1000" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-22.jpg" alt="Pascal Sander on the cover of Quadro magazine" width="1085" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-15.jpg" alt="Pascal Sander in an open white shirt by a lake" width="933" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-42.jpg" alt="Pascal Sander in ski gear holding skis and a helmet in falling snow" width="999" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-09.jpg" alt="Pascal Sander in an open white shirt leaning by a window" width="933" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-37.jpg" alt="Pascal Sander in profile under warm light, dramatic studio" width="999" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-62.jpg" alt="Pascal Sander shirtless by the sea, Replay, black and white" width="1500" height="1000" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-20.jpg" alt="Pascal Sander in deep red light, holding a small flame" width="931" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-07.jpg" alt="Pascal Sander in profile outdoors, open jacket, black and white" width="968" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-29.jpg" alt="Pascal Sander in a black printed t-shirt, streetwear look" width="934" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-56.jpg" alt="Pascal Sander shirtless outdoors, looking to the side, black and white" width="1001" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-34.jpg" alt="Pascal Sander and a partner in formalwear, black and white" width="933" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-39.jpg" alt="Pascal Sander behind textured glass, face half obscured" width="999" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-43.jpg" alt="Pascal Sander in ski goggles on a snowy slope, black and white" width="999" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-11.jpg" alt="Pascal Sander in a brown leather jacket indoors" width="640" height="960" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-04.jpg" alt="Pascal Sander shirtless by the water, chin resting on his hand" width="922" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-57.jpg" alt="Pascal Sander and a model before a sky backdrop, Botty autumn campaign" width="1000" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-53.jpg" alt="Pascal Sander from behind in a shearling jacket, hands on his head" width="999" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-12.jpg" alt="Pascal Sander in an open green jacket against greenery" width="933" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-02.jpg" alt="Pascal Sander in an open black blazer on a city rooftop" width="898" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-08.jpg" alt="Pascal Sander with wet hair in an open white shirt and blazer" width="933" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-30.jpg" alt="Pascal Sander in a white tank top against a textured wall" width="1050" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-16.jpg" alt="Pascal Sander shirtless with a jacket over one shoulder, dark studio" width="933" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-58.jpg" alt="Pascal Sander in a leather jacket and Chelsea boots, Botty autumn campaign" width="947" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-51.jpg" alt="Pascal Sander seated on stone steps in a leather jacket" width="999" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-41.jpg" alt="Pascal Sander skiing, skis over his shoulder in the mountains" width="999" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-03.jpg" alt="Pascal Sander with a hand in his hair, dark studio portrait" width="975" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-35.jpg" alt="Pascal Sander and a partner holding a cake, laughing" width="933" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-14.jpg" alt="Pascal Sander with wet hair, close black and white portrait" width="933" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-47.jpg" alt="Pascal Sander and a model before a sky backdrop, Gola campaign" width="894" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-55.jpg" alt="Pascal Sander in ski goggles holding gear on a snowy peak" width="1001" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-31.jpg" alt="Pascal Sander outdoors in a long wrap skirt on a garden path" width="934" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-60.jpg" alt="Pascal Sander from behind, hands clasped, black and white studio portrait" width="998" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-48.jpg" alt="Pascal Sander in a beanie and dark coat, studio portrait" width="1125" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-36.jpg" alt="Pascal Sander in motion blur under red light" width="999" height="1500" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-06.jpg" alt="Pascal Sander shirtless, pushing back wet hair by the water" width="1005" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/portfolio/pf-24.jpg" alt="Pascal Sander in a brown polo by a lake at golden hour" width="1600" height="1068" loading="lazy" /></figure>
-      </div>
-    </section>
-
-    <!-- ============ GALLERY ============ -->
-    <section class="px-5 md:px-12 pb-16">
-      <p class="label-mono border-t border-ink/12 pt-12 reveal">Of course, I don't want to deprive you of more recent shoots either</p>
-      <div class="strip reveal mt-10">
-        <figure><img src="assets/gallery-01.jpg" alt="Pascal Sander sitting, white shirt and black coat, studio" width="800" height="1200" loading="lazy" /></figure>
-        <figure><img src="assets/gallery-02.jpg" alt="Pascal Sander in a black tank top, leaning against a concrete wall" width="857" height="1200" loading="lazy" /></figure>
-        <figure><img src="assets/gallery-03.jpg" alt="Pascal Sander standing in a river, laughing" width="800" height="1200" loading="lazy" /></figure>
-        <figure><img src="assets/gallery-04.jpg" alt="Close black and white portrait with wet hair" width="800" height="1200" loading="lazy" /></figure>
-        <figure><img src="assets/gallery-05.jpg" alt="Pascal Sander in a black coat and open white shirt, looking down" width="837" height="1200" loading="lazy" /></figure>
-        <figure><img src="assets/gallery-07.jpg" alt="Pascal Sander in a shearling jacket, black and white" width="1067" height="1600" loading="lazy" /></figure>
-        <figure><img src="assets/gallery-06.jpg" alt="Pascal Sander shirtless studio portrait, hand in hair" width="800" height="1200" loading="lazy" /></figure>
-      </div>
-    </section>
-
     <section class="px-5 md:px-12 pb-28">
       <a class="pill inline-flex" href="index.html#contact">Interested in working together? Get in touch</a>
-    </section>
-    <section class="px-5 md:px-12 pb-16">
-      <div class="mt-2">
-          <div class="faq-item">
-            <button type="button" class="faq-q" aria-expanded="false" aria-controls="m-faq-0">How do you become a model in Switzerland?<span class="faq-icon" aria-hidden="true">+</span></button>
-            <div class="faq-a" id="m-faq-0"><div class="prose-ed" style="font-size:0.98rem"><p>In my experience it usually starts with a strong set of digitals or a first shoot, then applying to reputable agencies and building a portfolio through real jobs. I describe my own path, including the setbacks, across the ten chapters above.</p></div></div>
-          </div>
-          <div class="faq-item">
-            <button type="button" class="faq-q" aria-expanded="false" aria-controls="m-faq-1">Which agencies represent you?<span class="faq-icon" aria-hidden="true">+</span></button>
-            <div class="faq-a" id="m-faq-1"><div class="prose-ed" style="font-size:0.98rem"><p>I work with Fotogen in Zurich, New Generation in Amsterdam, Talents Models in Munich and Models Milano, and I am building toward the larger fashion markets in Paris and beyond.</p></div></div>
-          </div>
-          <div class="faq-item">
-            <button type="button" class="faq-q" aria-expanded="false" aria-controls="m-faq-2">What kind of modeling jobs do you take?<span class="faq-icon" aria-hidden="true">+</span></button>
-            <div class="faq-a" id="m-faq-2"><div class="prose-ed" style="font-size:0.98rem"><p>Runway shows, video commercials, campaigns and fashion editorials, mostly in Switzerland. Recent work includes campaigns for brands such as Galaxus, bfu, Nikon, Scoop and Botty.</p></div></div>
-          </div>
-          <div class="faq-item">
-            <button type="button" class="faq-q" aria-expanded="false" aria-controls="m-faq-4">Where have you been featured?<span class="faq-icon" aria-hidden="true">+</span></button>
-            <div class="faq-a" id="m-faq-4"><div class="prose-ed" style="font-size:0.98rem"><p>On Swiss television, on the cinema screen and in print. Highlights include SRF's &quot;Mini Chuchi, dini Chuchi&quot;, national TV and cinema commercials, and Harper's Bazaar, one of the world's most coveted fashion magazines, where my runway look for designer Jennifer Gehr appeared in the Serbian edition. My work has also been published in Quadro magazine, including a cover, and in several other editorials.</p></div></div>
-          </div>
-          <div class="faq-item">
-            <button type="button" class="faq-q" aria-expanded="false" aria-controls="m-faq-3">Are you available for bookings?<span class="faq-icon" aria-hidden="true">+</span></button>
-            <div class="faq-a" id="m-faq-3"><div class="prose-ed" style="font-size:0.98rem"><p>Yes. For booking requests you can reach me through the contact form, or bookings can also be directed to office@fotogen.ch.</p></div></div>
-          </div>
-      </div>
     </section>
     </main>
   <footer class="px-6 py-16" style="border-top:1px solid color-mix(in srgb,transparent,var(--color-ink) 14%)">
