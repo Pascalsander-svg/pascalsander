@@ -170,6 +170,15 @@
     .fold-sec > summary{ padding:.2rem 0 1.2rem; }
     .fold-sec > summary .sec-title{ margin:0; }
     .fold-note{ margin:0 0 1.4rem; font-size:.95rem; }
+      /* Polas fold and compact main portfolio */
+    .pola-label{ margin:.2rem 0 .7rem; }
+    .pola-strip{ margin-bottom:1.4rem; }
+    .pola-strip img{ height:240px; }
+    @media (max-width:640px){ .pola-strip img{ height:190px; } }
+    #main-grid{ column-width:154px; column-gap:.8rem; }
+    #main-grid figure{ margin-bottom:.8rem; }
+    @media (min-width:1200px){ #main-grid{ column-width:160px; } }
+    @media (max-width:640px){ #main-grid{ column-width:105px; column-gap:.5rem; } #main-grid figure{ margin-bottom:.5rem; } }
   </style>
 </head>
 <body>
@@ -250,6 +259,26 @@
       </div>
     </section>
 
+    <!-- ============ POLAS (FOLD) ============ -->
+    <section class="px-5 md:px-12 pb-6">
+      <details class="fold fold-sec">
+        <summary class="chapter-summary"><h2 class="sec-title">Polas</h2><span class="chapter-icon" aria-hidden="true"></span></summary>
+        <p class="label-mono pola-label">Without beard</p>
+        <div class="strip pola-strip">
+          <figure><img src="assets/polas/pola-01.jpg" alt="Pascal Sander digitals, white t-shirt, front" width="931" height="1400" loading="lazy" /></figure>
+          <figure><img src="assets/polas/pola-02.jpg" alt="Pascal Sander digitals, white t-shirt, portrait" width="931" height="1400" loading="lazy" /></figure>
+          <figure><img src="assets/polas/pola-03.jpg" alt="Pascal Sander digitals, white t-shirt and jeans, side" width="931" height="1400" loading="lazy" /></figure>
+        </div>
+        <p class="label-mono pola-label">With beard</p>
+        <div class="strip pola-strip">
+          <figure><img src="assets/polas/pola-beard-01.jpg" alt="Pascal Sander digitals with beard, black t-shirt and flared jeans, front, full length" width="931" height="1400" loading="lazy" /></figure>
+          <figure><img src="assets/polas/pola-beard-02.jpg" alt="Pascal Sander digitals with beard, black t-shirt and flared jeans, side profile" width="931" height="1400" loading="lazy" /></figure>
+          <figure><img src="assets/polas/pola-beard-03.jpg" alt="Pascal Sander digitals with beard, black t-shirt and flared jeans, three-quarter portrait" width="931" height="1400" loading="lazy" /></figure>
+          <figure><img src="assets/polas/pola-beard-04.jpg" alt="Pascal Sander digitals with beard, black t-shirt and flared jeans, close portrait" width="931" height="1400" loading="lazy" /></figure>
+        </div>
+      </details>
+    </section>
+
     <!-- ============ PORTFOLIO (MAIN) ============ -->
     <section class="px-5 md:px-12 pb-16">
       <details class="fold fold-sec" open>
@@ -289,27 +318,6 @@
       </details>
     </section>
 
-
-    <!-- ============ POLAS / DIGITALS (ohne Bart) ============ -->
-    <section class="px-6 pb-12">
-      <h2 class="sec-title reveal">Polas</h2>
-      <div class="strip reveal">
-        <figure><img src="assets/polas/pola-01.jpg" alt="Pascal Sander digitals, white t-shirt, front" width="931" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/polas/pola-02.jpg" alt="Pascal Sander digitals, white t-shirt, portrait" width="931" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/polas/pola-03.jpg" alt="Pascal Sander digitals, white t-shirt and jeans, side" width="931" height="1400" loading="lazy" /></figure>
-      </div>
-    </section>
-
-    <!-- ============ POLAS / DIGITALS (mit Bart) ============ -->
-    <section class="px-6 pb-12">
-      <h2 class="sec-title reveal">Polas with beard</h2>
-      <div class="strip reveal">
-        <figure><img src="assets/polas/pola-beard-01.jpg" alt="Pascal Sander digitals with beard, black t-shirt and flared jeans, front, full length" width="931" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/polas/pola-beard-02.jpg" alt="Pascal Sander digitals with beard, black t-shirt and flared jeans, side profile" width="931" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/polas/pola-beard-03.jpg" alt="Pascal Sander digitals with beard, black t-shirt and flared jeans, three-quarter portrait" width="931" height="1400" loading="lazy" /></figure>
-        <figure><img src="assets/polas/pola-beard-04.jpg" alt="Pascal Sander digitals with beard, black t-shirt and flared jeans, close portrait" width="931" height="1400" loading="lazy" /></figure>
-      </div>
-    </section>
 
     <!-- ============ RUNWAYS ============ -->
     <section class="px-6 pb-12">
